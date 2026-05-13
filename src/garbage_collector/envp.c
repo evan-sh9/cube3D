@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   envp.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:52:59 by adjelili          #+#    #+#             */
-/*   Updated: 2026/02/28 11:02:36 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:15:05 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int main(int argc, char **argv, char **envp)
 	{
 		new = ft_malloc(1, sizeof(t_env));
 		new->key = create_key(envp[y]);
-		new->key = ft_strchr(envp[y], '=')
-			y++;
-	}
+		new->key = ft_strchr(envp[y], '=');
+		y++;
+	}include 
 
 	return (0);
 }

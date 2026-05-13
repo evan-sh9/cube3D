@@ -1,4 +1,13 @@
-CFILE = main.c
+CFILE = main.c \
+		src/utils/ft_strchr.c \
+		src/utils/ft_strdup.c \
+		src/utils/ft_strjoin.c \
+		src/utils/ft_strlen.c \
+		src/utils/ft_substr.c \
+		src/utils/gnl.c \
+		src/utils/ft_strcpy.c \
+		src/parsing/parsing.c \
+		src/parsing/map_copy.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D
@@ -16,10 +25,10 @@ all: $(MINILIBX) $(NAME)
 
 $(NAME): $(OBJS)
 	@printf "\n$(GREEN)[Compilation] Compilation principal ...$(RESET)\n\n"
-	cc $(CFLAGS) $(OBJS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
+	cc $(OBJS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
 
 %.o: %.c
-	cc $(CFLAGS) -c $(INCLUDES) $< -o $@
+	cc -c $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"
