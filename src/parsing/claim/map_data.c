@@ -35,12 +35,12 @@ void	map_data(t_pars *pars)
 	while (i < 5)
 	{
 		line = get_next_line(fd);
-		i++;
-		if (line_checker(line, i))
+		if (line_checker(line, i + 1))
 		{
 			printf("Error : Invalid map format\n");
 			exit(EXIT_FAILURE);
 		}
+		i++;
 	}
 	close(fd);
 }

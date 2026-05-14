@@ -44,20 +44,21 @@ void	claim(t_pars *pars, int fd)
 	j = 0;
 	while (i < CONFIG_LINE)
 	{
-		get_next_line(fd);
+		line = get_next_line(fd);
 		i++;
 	}
 	while (i < pars->map_height)
 	{
 		line = get_next_line(fd);
+        if (!line)
+            break;
 		pars->map[j] = claim_line(line);
         printf("map line : %s \n", pars->map[j]);
 		i++;
 		j++;
 	}
-	get_next_line(fd);
-	free(line);
 	pars->map[j] = NULL;
+	get_next_line(fd);
 }
 
 void	claim_map(t_pars *pars)
