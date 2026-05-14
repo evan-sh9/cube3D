@@ -7,6 +7,9 @@
 #include "parsing.h"
 #include "gnl.h"
 #include "../minilibx-linux/mlx.h"
+#include "graphics.h"
+#include "../src/garbage_collector/gc.h"
+#include <math.h>
 
 typedef struct s_pars t_pars;
 typedef struct config t_config;

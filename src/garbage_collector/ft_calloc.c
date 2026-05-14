@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:14:19 by adjelili          #+#    #+#             */
-/*   Updated: 2026/02/24 11:44:27 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:20:47 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (ptr);
 }
-
-/*#include <stdio.h>
-
-int main(void)
-{
-	ft_calloc(4, 4);
-	calloc(4, 4);
-}*/
