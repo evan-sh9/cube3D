@@ -10,7 +10,8 @@ CFILE = main.c \
 		src/parsing/claim/map_copy.c \
 		src/parsing/claim/claim_map.c \
 		src/parsing/check/file_validity.c \
-		src/parsing/check/map_validity.c 
+		src/parsing/check/map_validity.c  \
+		src/parsing/claim/map_data.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D

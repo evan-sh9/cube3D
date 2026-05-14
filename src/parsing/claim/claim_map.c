@@ -37,10 +37,12 @@ char	*claim_line(char *line)
 void	claim(t_pars *pars, int fd)
 {
 	int		i;
+	int		j;
 	char	*line;
 
 	i = 0;
-	while (i < 8)
+	j = 0;
+	while (i < CONFIG_LINE)
 	{
 		get_next_line(fd);
 		i++;
@@ -48,12 +50,14 @@ void	claim(t_pars *pars, int fd)
 	while (i < pars->map_height)
 	{
 		line = get_next_line(fd);
-		pars->map[i] = claim_line(line);
-        printf("map line : %s \n", pars->map[i]);
+		pars->map[j] = claim_line(line);
+        printf("map line : %s \n", pars->map[j]);
 		i++;
+		j++;
 	}
 	get_next_line(fd);
-	pars->map[i] = NULL;
+	free(line);
+	pars->map[j] = NULL;
 }
 
 void	claim_map(t_pars *pars)
@@ -61,9 +65,9 @@ void	claim_map(t_pars *pars)
 	int		fd;
 
 	pars->map_height = map_height(pars->map_file);
-	if (pars->map_height <= 8)
+	if (pars->map_height <= CONFIG_LINE)
 	{
-		printf("Error :Invalid file\n");
+		printf("Error : Invalid file\n");
 		exit(EXIT_FAILURE);
 	}
 	if (pars->map_height == -1)
@@ -84,6 +88,7 @@ void	claim_map(t_pars *pars)
 void map_load(t_pars *pars)
 {
 	file_check(pars);
+	map_data(pars);
     claim_map(pars);
     map_copy(pars);
 }

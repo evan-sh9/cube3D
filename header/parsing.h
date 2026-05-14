@@ -5,6 +5,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+#define CONFIG_LINE 8
+
 typedef struct config
 {
 	char		*floor_color;
@@ -27,7 +29,7 @@ typedef struct s_pars
 
 void			map_load(t_pars *pars);
 void			map_copy(t_pars *pars);
-void			claim_map(t_pars *pars);
+void			map_data(t_pars *pars);
 void			file_check(t_pars *pars);
 
 #endif
