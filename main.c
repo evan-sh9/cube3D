@@ -1,7 +1,8 @@
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
-int main()
+int main(void)
 {
-    
-    return 0;
+	
+
+	return (0);
 }
