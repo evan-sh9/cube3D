@@ -1,0 +1,90 @@
+#include "../../../header/cub3D.h"
+
+int	map_height(char *s)
+{
+	int		i;
+	int		fd;
+	char	*line;
+
+	i = 0;
+	fd = open(s, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	line = get_next_line(fd);
+	while (line)
+	{
+		i++;
+		// free(line);
+		line = get_next_line(fd);
+	}
+	// free(line);
+	close(fd);
+	return (i);
+}
+
+char	*claim_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] && line[i] != '\n')
+		i++;
+	if (line[i] == '\n')
+		line[i] = '\0';
+	return (line);
+}
+
+void	claim(t_pars *pars, int fd)
+{
+	int		i;
+	char	*line;
+
+	i = 0;
+	while (i < pars->map_height)
+	{
+		line = get_next_line(fd);
+		pars->file_content[i] = claim_line(line);
+        // printf("file content : %s \n", pars->file_content[i]);
+		i++;
+	}
+	pars->file_content[i] = NULL;
+	get_next_line(fd);
+}
+
+void	claim_content(t_pars *pars)
+{	
+	int		fd;
+
+	pars->map_height = map_height(pars->map_file);
+	if (pars->map_height <= CONFIG_LINE)
+	{
+		printf("Error : Invalid file\n");
+		exit(EXIT_FAILURE);
+	}
+	if (pars->map_height == -1)
+		exit(EXIT_FAILURE);
+	pars->file_content = malloc((pars->map_height + 1) * sizeof(char *));
+	if (!pars->map)
+		exit(EXIT_FAILURE);
+	fd = open(pars->map_file, O_RDONLY);
+	if (fd == -1)
+	{
+		free(pars->map);
+		exit(EXIT_FAILURE);
+	}
+	claim(pars, fd);
+	close(fd);
+}
+
+void map_load(t_pars *pars)
+{
+	file_check(pars);
+    claim_content(pars);
+	config_validity(pars);
+	// config_data(pars);
+	// claim_map(pars);
+    // map_copy(pars);
+}
+
+
+// claim all -> config -> map -> map copy
