@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:38:30 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/14 15:21:29 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/15 17:12:50 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ void	*ft_malloc(size_t nmemb, size_t size)
 	list_ptr = return_adress();
 	ptr = ft_calloc(nmemb, size);
 	if (!ptr)
+	{
 		ft_free_all_malloc();
+		exit(EXIT_FAILURE);
+	}
 	new = ft_lstnew(ptr);
 	if (!new)
 		ft_free_all_malloc();
