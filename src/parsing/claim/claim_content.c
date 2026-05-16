@@ -64,12 +64,10 @@ void	claim_content(t_pars *pars)
 	if (pars->map_height == -1)
 		exit(EXIT_FAILURE);
 	pars->file_content = malloc((pars->map_height + 1) * sizeof(char *));
-	if (!pars->map)
-		exit(EXIT_FAILURE);
 	fd = open(pars->map_file, O_RDONLY);
 	if (fd == -1)
 	{
-		free(pars->map);
+		// free all
 		exit(EXIT_FAILURE);
 	}
 	claim(pars, fd);

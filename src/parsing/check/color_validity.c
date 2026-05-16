@@ -6,7 +6,7 @@ void   print_double_tab(char **s)
 
     while (s[i])
     {
-        printf("tab %i : %s\n", i, s[i]);
+        printf("print d tab %i : %s\n", i, s[i]);
         i++;
     }
 }
@@ -16,7 +16,7 @@ void   print_int_double_tab(int *s)
 
     while (i < 3)
     {
-        printf("tab %i : %i\n", i, s[i]);
+        printf("print int tab %i : %i\n", i, s[i]);
         i++;
     }
 }
@@ -75,5 +75,6 @@ void    claim_color(t_pars *pars, int line_nb)
         celling_floor = claim_line(pars->file_content[6] + 2);
         split_celling_floor = ft_split(celling_floor, ',');
         // print_double_tab(split_celling_floor);
+        char_split_to_int(split_celling_floor);
     }
 }

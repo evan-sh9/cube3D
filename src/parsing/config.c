@@ -1,10 +1,5 @@
 #include "../../header/cub3D.h"
 
-// int texture_path_checker(char *line, char c)
-// {
-
-// }
-
 int color_check(char *line, int line_nb)
 {
 	if (line_nb == 5 && line[0] == '\0')
