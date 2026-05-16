@@ -1,6 +1,6 @@
 #include "../../../header/cub3D.h"
 
-int	map_height(char *s)
+int	file_height(char *s)
 {
 	int		i;
 	int		fd;
@@ -40,7 +40,7 @@ void	claim(t_pars *pars, int fd)
 	char	*line;
 
 	i = 0;
-	while (i < pars->map_height)
+	while (i < pars->file_height)
 	{
 		line = get_next_line(fd);
 		pars->file_content[i] = claim_line(line);
@@ -55,12 +55,12 @@ void	claim_content(t_pars *pars)
 {	
 	int		fd;
 
-	pars->map_height = map_height(pars->map_file);
-	if (pars->map_height <= CONFIG_LINE)
+	pars->file_height = file_height(pars->map_file);
+	if (pars->file_height <= CONFIG_LINE)
 		invalid_file();
-	if (pars->map_height == -1)
+	if (pars->file_height == -1)
 		exit(EXIT_FAILURE);
-	pars->file_content = malloc((pars->map_height + 1) * sizeof(char *));
+	pars->file_content = malloc((pars->file_height + 1) * sizeof(char *));
 	fd = open(pars->map_file, O_RDONLY);
 	if (fd == -1)
 	{
@@ -75,10 +75,9 @@ void map_load(t_pars *pars)
 {
 	file_check(pars);
     claim_content(pars);
-	config_validity(pars);
-	// config_data(pars);
-	// claim_map(pars);
-    // map_copy(pars);
+	config_load(pars);
+	claim_map(pars);
+    claim_map_copy(pars);
 }
 
 

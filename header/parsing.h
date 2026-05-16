@@ -23,6 +23,7 @@ typedef struct s_pars
 	char		**map_copy;		// copy de la carte
 	char		**file_content; // tout le contenue du fichier
 	char		*map_file;		// le fichie
+	int			file_height;
 	int			map_height;
 	int			map_width;
 	t_config	config;
@@ -37,12 +38,14 @@ void			map_copy(t_pars *pars);
 
 void			file_check(t_pars *pars);
 void	        color_validity(char **s, int size);
-void			config_validity(t_pars *pars);
+void			config_load(t_pars *pars);
 
 // claim
 
 void    		claim_color(t_pars *pars, int line_nb);
 char			*claim_line(char *line);
+void			claim_map(t_pars *pars);
+void			claim_map_copy(t_pars *pars);
 
 // debug
 

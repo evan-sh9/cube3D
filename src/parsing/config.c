@@ -40,11 +40,9 @@ void	fill_config_struct(t_pars *pars, int line_nb)
 	claim_color(pars, line_nb);
 }
 
-void	config_validity(t_pars *pars)
+void	config_load(t_pars *pars)
 {
-	int		fd;
 	int		i;
-	char	*line;
 
 	i = 0;
 	while (i < CONFIG_LINE)

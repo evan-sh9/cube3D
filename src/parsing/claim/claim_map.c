@@ -1,23 +1,34 @@
 #include "../../../header/cub3D.h"
 
-void	map_copy(t_pars *pars)
+void	claim_map_copy(t_pars *pars)
 {
 	int	i;
 
 	i = 0;
-	pars->map_copy = malloc((pars->map_height - CONFIG_LINE + 1) * sizeof(char *));
+	pars->map_copy = malloc((pars->map_height + 1) * sizeof(char *));
 	if (!pars->map_copy)
 		return ;
 	while (pars->map[i])
 	{
 		pars->map_copy[i] = ft_strdup(pars->map[i]);
-		printf("map line cpy : %s \n", pars->map_copy[i]);
 		i++;
 	}
 	pars->map_copy[i] = NULL;
 }
 
-// void	claim_map(t_pars *pars)
-// {
-	
-// }
+void	claim_map(t_pars *pars)
+{
+	int	i;
+
+	i = 0;
+	pars->map_height = pars->file_height - CONFIG_LINE;
+	pars->map = malloc((pars->map_height + 1) * sizeof(char *));
+	if (!pars->map)
+		return ;
+	while (i < pars->map_height)
+	{
+		pars->map[i] = ft_strdup(pars->file_content[i + CONFIG_LINE]);
+		i++;
+	}
+	pars->map[i] = NULL;
+}

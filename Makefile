@@ -35,10 +35,10 @@ all: $(MINILIBX) $(NAME)
 
 $(NAME): $(OBJS)
 	@printf "\n$(GREEN)[Compilation] Compilation principal ...$(RESET)\n\n"
-	cc $(OBJS) $(FLAG) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
+	cc $(OBJS) $(CFLAGS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
 
 %.o: %.c
-	cc -c $(FLAG) $(INCLUDES) $< -o $@
+	cc -c $(CFLAGS) $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"
