@@ -51,13 +51,17 @@ typedef struct s_graphics
 
 	void	*mlx;
 	void	*window;
+	void	*img;
+	char	*addr;
 	char	**map;
-
+	int		bits_per_px; // la taille de chaque pixel en octets, vu que chaque pixel est en rgba on a 4 int de 8 bits donc 32bits par pixel
+	int		line_size; // la taille d'une ligne en byte
+	int		endian;
 	t_pars	*pars;
 } t_graphics;
 
 void	algo(t_graphics **graph);
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x);
 double	ft_abs(double num);
-
+void	my_pixel_put(t_graphics *graph, int x, int y, int color);
 #endif

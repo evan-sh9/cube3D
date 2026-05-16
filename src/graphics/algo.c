@@ -8,15 +8,12 @@ void	algo(t_graphics **graph)
 	while (x < WIDTH)
 	{
 		(*graph)->camera_x = 2 * x / (double)WIDTH - 1;
-		// printf("%f\n", (*graph)->camera_x);
 		(*graph)->ray_x = (*graph)->dir_x + (*graph)->plane_x * (*graph)->camera_x;
-		// printf("%f\n", (*graph)->ray_x);
 		(*graph)->ray_y = (*graph)->dir_y + (*graph)->plane_y * (*graph)->camera_x;
-		// printf("%f\n", (*graph)->ray_y);
 		*graph = dda((*graph)->ray_x, (*graph)->ray_y, *graph, x);
-
 		x++;
 	}
+	mlx_put_image_to_window((*graph)->mlx, (*graph)->window, (*graph)->img, 0, 0);
 }
 
 double	ft_abs(double num)
@@ -102,7 +99,7 @@ t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
 	y = 0;
 	while (y < graph->higher_px)
 	{
-		mlx_pixel_put(graph->mlx, graph->window, x, y, 0x333333);
+		my_pixel_put(graph, x, y, 0x333333);
 		y++;
 	}
 	while (y <= graph->lower_px)
@@ -110,14 +107,23 @@ t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
 		int color = 0xFF0000;
 		if (side == 1)
 			color = color / 2;
-		mlx_pixel_put(graph->mlx, graph->window, x, y, color);
+		my_pixel_put(graph, x, y, color);
 		y++;
 	}
 	while (y < HEIGHT)
 	{
-		mlx_pixel_put(graph->mlx, graph->window, x, y, 0x666666);
+		my_pixel_put(graph, x, y, 0x666666);
 		y++;
 	}
 	return (graph);
 }
 
+void	my_pixel_put(t_graphics *graph, int x, int y, int color)
+{
+	char	*dst;
+
+	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+		return ;
+	dst = graph->addr + (y * graph->line_size + x * (graph->bits_per_px / 8));
+	*(unsigned int*)dst = color;
+}

@@ -6,18 +6,6 @@ int main(int ac, char **av)
 	(void)av;
     //t_pars pars;
 	t_graphics *graph;
-
-	// char **test_map;
-
-    // test_map = ft_malloc(1, sizeof(char *) * 6);
-    // if (!test_map)
-    //     return 1;
-    // test_map[0] = ft_strdup("111111");
-    // test_map[1] = ft_strdup("100001");
-    // test_map[2] = ft_strdup("101001");
-    // test_map[3] = ft_strdup("100001");
-    // test_map[4] = ft_strdup("111111");
-    // test_map[5] = NULL;
 	
 	graph = ft_malloc(1, sizeof(t_graphics));
 
@@ -59,7 +47,10 @@ int main(int ac, char **av)
 	graph->step_x = 0;
 	graph->step_y = 0;
 	graph->mlx = mlx_init();
-	graph->window = mlx_new_window(graph->mlx, 2560, 1440, "game");
+	graph->window = mlx_new_window(graph->mlx, WIDTH, HEIGHT, "game");
+	graph->img = mlx_new_image(graph->mlx, WIDTH, HEIGHT);
+	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px, &graph->line_size, &graph->endian);
+
 	algo(&graph);
 	mlx_loop(graph->mlx);
     //     return (1);
