@@ -9,12 +9,15 @@ CFILE = main.c \
 		src/utils/ft_strcpy.c \
 		src/utils/ft_split.c \
 		src/utils/ft_atoi.c \
+		src/utils/exit_free.c \
 		src/parsing/claim/claim_map.c \
 		src/parsing/claim/claim_content.c \
+		src/parsing/claim/claim_color.c \
 		src/parsing/check/file_validity.c \
 		src/parsing/check/map_validity.c \
 		src/parsing/check/color_validity.c \
-		src/parsing/config.c
+		src/parsing/config.c \
+		src/parsing/debug.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D

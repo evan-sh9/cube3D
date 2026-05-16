@@ -15,15 +15,7 @@ int	extention_check(char *s)
 void	file_check(t_pars *pars)
 {
 	if (ft_strlen(pars->map_file) <= 4)
-	{
-		// free();
-		printf("Error :Invalid file\n");
-		exit(EXIT_FAILURE);
-	}
+		invalid_file();
 	if (extention_check(pars->map_file))
-	{
-		// free();
-		printf("Error : Invalid file\n");
-		exit(EXIT_FAILURE);
-	}
+		invalid_file();
 }

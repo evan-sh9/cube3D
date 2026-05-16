@@ -1,5 +1,12 @@
 #include "../../header/cub3D.h"
 
+static void exit_atoi()
+{
+	// ft_free_all_malloc();
+	printf("Error : Invalid size\n");
+	exit(EXIT_FAILURE);
+}
+
 static int	is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
@@ -30,9 +37,6 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	if (nb > INT_MAX || nb < INT_MIN)
-	{
-		// ft_free_all_malloc();
-		exit(EXIT_FAILURE);
-	}
+		exit_atoi();
 	return (nb * c);
 }

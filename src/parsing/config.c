@@ -47,20 +47,23 @@ void	config_validity(t_pars *pars)
 	char	*line;
 
 	i = 0;
-	while (i < 8)
+	while (i < CONFIG_LINE)
 	{
-		// printf("config validity : %s \n", pars->file_content[i]);
 		if (line_checker(pars->file_content[i], i + 1))
-		{
-			printf("Error : Invalid map format\n");
-			exit(EXIT_FAILURE);
-		}
+			invalid_map();
 		else
 			fill_config_struct(pars, i + 1);
-		// printf("north path : %s \n", pars->config.north_texture);
-		// printf("south path : %s \n", pars->config.south_texture);
-		// printf("west path : %s \n", pars->config.west_texture);
-		// printf("est path : %s \n", pars->config.est_texture);
 		i++;
 	}
 }
+
+/*
+	printf("north path : %s \n", pars->config.north_texture);
+	printf("south path : %s \n", pars->config.south_texture);
+	printf("west path : %s \n", pars->config.west_texture);
+	printf("est path : %s \n", pars->config.est_texture);
+	printf("floor color : \n");
+	print_int_tab(pars->config.floor_color);
+	printf("celling color : \n");
+	print_int_tab(pars->config.celling_floor);
+*/

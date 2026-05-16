@@ -57,10 +57,7 @@ void	claim_content(t_pars *pars)
 
 	pars->map_height = map_height(pars->map_file);
 	if (pars->map_height <= CONFIG_LINE)
-	{
-		printf("Error : Invalid file\n");
-		exit(EXIT_FAILURE);
-	}
+		invalid_file();
 	if (pars->map_height == -1)
 		exit(EXIT_FAILURE);
 	pars->file_content = malloc((pars->map_height + 1) * sizeof(char *));
