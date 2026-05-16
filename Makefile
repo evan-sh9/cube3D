@@ -15,7 +15,8 @@ CFILE = main.c \
 		src/garbage_collector/ft_lstnew.c \
 		src/garbage_collector/ft_lstadd_back.c \
 		src/garbage_collector/ft_calloc.c \
-		src/graphics/algo.c
+		src/game/algo.c \
+		src/game/hook.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D

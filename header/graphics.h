@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "parsing.h"
 #include <math.h>
+#include "../src/garbage_collector/gc.h"
 #include <stdlib.h>
 
 typedef struct s_graphics
@@ -64,4 +65,7 @@ void	algo(t_graphics **graph);
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x);
 double	ft_abs(double num);
 void	my_pixel_put(t_graphics *graph, int x, int y, int color);
+void	ft_exit(t_graphics *graph);
+void	mouv(int keycode, t_graphics *graph);
+
 #endif

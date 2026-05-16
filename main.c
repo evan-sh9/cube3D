@@ -52,6 +52,8 @@ int main(int ac, char **av)
 	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px, &graph->line_size, &graph->endian);
 
 	algo(&graph);
+	//mlx_hook(graph->window, 3, 2, (void *)mouv, graph);
+	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);
 	mlx_loop(graph->mlx);
     //     return (1);
     // pars.map_file = av[1];
