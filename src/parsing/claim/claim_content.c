@@ -78,7 +78,11 @@ void map_load(t_pars *pars)
 	config_load(pars);
 	claim_map(pars);
     claim_map_copy(pars);
+	
+	find_pl_pos(pars);
+	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
+	// print_double_tab(pars->map_copy);
 }
 
-
-// claim all -> config -> map -> map copy
+//	printf("start pos | x : %i, y : %i\n", pars->pl_pos[0], pars->pl_pos[1]);
+//	claim all -> config -> map -> map copy

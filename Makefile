@@ -16,6 +16,7 @@ CFILE = main.c \
 		src/parsing/check/file_validity.c \
 		src/parsing/check/map_validity.c \
 		src/parsing/check/color_validity.c \
+		src/parsing/player_pos.c \
 		src/parsing/config.c \
 		src/parsing/debug.c
 

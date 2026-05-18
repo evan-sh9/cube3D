@@ -6,7 +6,7 @@ void   print_double_tab(char **s)
 
     while (s[i])
     {
-        printf("print d tab %i : %s\n", i, s[i]);
+        printf("print d tab : %s\n", s[i]);
         i++;
     }
 }
@@ -17,7 +17,7 @@ void   print_int_tab(int *s)
 
     while (i < 3)
     {
-        printf("print int tab %i : %i\n", i, s[i]);
+        printf("print int tab : %i\n", s[i]);
         i++;
     }
 }
