@@ -25,9 +25,19 @@ void	ft_exit(t_graphics *graph)
 	exit(EXIT_SUCCESS);
 }
 
-// void	mouv(int keycode, t_graphics *graph) // pour gerer les mouvements de cmaera et du joeurs
-// {
-// 	// if else pour toutes les touches
-// 	// en fonction de la touche on va soit modifier la posriiton du jouer soit la direction des rayons
-// }
+void	mouv(int keycode, t_graphics **graph) // pour gerer les mouvements de cmaera et du joeurs
+{
+	if (keycode == 65307)
+		ft_exit(*graph);
+	// else if (keycode == 65363)
+	// 	turn_camera_to_right();
+	// else if (keycode == 65361)
+	// 	turn_camera_to_left();
+	// if else pour toutes les touches
+	// en fonction de la touche on va soit modifier la posriiton du jouer soit la direction des rayons
+}
 
+// void	turn_camera_to_right(t_graphics **graph)
+// {
+// 	(*graph)->dir_x = 
+// }
