@@ -56,8 +56,6 @@ void	claim_content(t_pars *pars)
 	int		fd;
 
 	pars->file_height = file_height(pars->map_file);
-	if (pars->file_height <= CONFIG_LINE)
-		invalid_file();
 	if (pars->file_height == -1)
 		exit(EXIT_FAILURE);
 	pars->file_content = malloc((pars->file_height + 1) * sizeof(char *));
@@ -78,9 +76,9 @@ void map_load(t_pars *pars)
 	config_load(pars);
 	claim_map(pars);
     claim_map_copy(pars);
-	
-	find_pl_pos(pars);
-	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
+
+	// find_pl_pos(pars);
+	// flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
 	// print_double_tab(pars->map_copy);
 }
 

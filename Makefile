@@ -17,7 +17,8 @@ CFILE = main.c \
 		src/parsing/check/map_validity.c \
 		src/parsing/check/color_validity.c \
 		src/parsing/player_pos.c \
-		src/parsing/config.c \
+		src/parsing/config/config.c \
+		src/parsing/config/find_conf_color.c \
 		src/parsing/debug.c
 
 CFLAGS = -Wall -Wextra -Werror

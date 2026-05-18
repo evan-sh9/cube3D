@@ -25,27 +25,27 @@ int     *char_split_to_int(char **s)
         int_split[i] = ft_atoi(s[i]);
         i++;
     }
-    // print_int_double_tab(int_split);
+    // print_int_tab(int_split);
     return (int_split);
 }
 
-void    claim_color(t_pars *pars, int line_nb)
+void    claim_color(t_pars *pars, int status, int line)
 {
 	char		*floor_color;
 	char		*celling_floor;
     char		**split_floor_color;
     char		**split_celling_floor;
 
-    if (line_nb == 6)
+    if (status == F)
     {
-		floor_color = claim_line(pars->file_content[5] + 2);
+		floor_color = claim_line(pars->file_content[line] + 2);
         comma_check(floor_color);
         split_floor_color = ft_split(floor_color, ',');
         pars->config.floor_color = char_split_to_int(split_floor_color);
     }
-    else if (line_nb == 7)
+    else if (status == C)
     {
-        celling_floor = claim_line(pars->file_content[6] + 2);
+        celling_floor = claim_line(pars->file_content[line] + 2);
         comma_check(celling_floor);
         split_celling_floor = ft_split(celling_floor, ',');
         pars->config.celling_floor = char_split_to_int(split_celling_floor);
