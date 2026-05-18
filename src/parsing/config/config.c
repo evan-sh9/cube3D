@@ -91,7 +91,7 @@ void	config_load(t_pars *pars)
 	printf("north path : %s \n", pars->config.north_texture);
 	printf("south path : %s \n", pars->config.south_texture);
 	printf("west path : %s \n", pars->config.west_texture);
-	printf("east path : %s \n", pars->config.est_texture);
+	printf("east path : %s \n", pars->config.east_texture);
 	printf("floor color : \n");
 	print_int_tab(pars->config.floor_color);
 	printf("celling color : \n");

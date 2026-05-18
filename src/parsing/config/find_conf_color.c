@@ -56,10 +56,4 @@ void	find_color(t_pars *pars)
 	}
 	n_setting_color_is_find(pars);
     pars->conf_height = i;
-    // stocker i comme ref CONFIG_LINE
 }
-
-/*
-    if (pars->file_height <= CONFIG_LINE)
-		invalid_file();
-*/

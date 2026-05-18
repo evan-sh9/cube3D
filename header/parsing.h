@@ -51,6 +51,7 @@ typedef struct s_pars
 	int				conf_height;
 	int				map_height;
 	int				map_width;
+	int				spawn_count;
 	t_config		config;
 	t_find_texture	find_t_var;
 }					t_pars;
@@ -65,6 +66,7 @@ void				config_load(t_pars *pars);
 void				file_check(t_pars *pars);
 void				color_validity(char **s, int size);
 void				flood_fill(t_pars *pars, int x, int y);
+void				spawn_checker(t_pars *pars);
 
 // claim
 

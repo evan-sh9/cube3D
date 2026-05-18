@@ -11,7 +11,6 @@ void	claim_map_copy(t_pars *pars)
 	while (pars->map[i])
 	{
 		pars->map_copy[i] = ft_strdup(pars->map[i]);
-		printf("map copy : %s\n", pars->map_copy[i]);
 		i++;
 	}
 	pars->map_copy[i] = NULL;
@@ -29,7 +28,6 @@ void	claim_map(t_pars *pars)
 	while (i < pars->map_height)
 	{
 		pars->map[i] = ft_strdup(pars->file_content[i + pars->conf_height]);
-		printf("map : %s\n", pars->map[i]);
 		i++;
 	}
 	pars->map[i] = NULL;
