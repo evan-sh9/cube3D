@@ -25,19 +25,36 @@ void	ft_exit(t_graphics *graph)
 	exit(EXIT_SUCCESS);
 }
 
-void	mouv(int keycode, t_graphics **graph) // pour gerer les mouvements de cmaera et du joeurs
+void	mouv(int keycode, t_graphics **graph)
 {
 	if (keycode == 65307)
 		ft_exit(*graph);
-	// else if (keycode == 65363)
-	// 	turn_camera_to_right();
-	// else if (keycode == 65361)
-	// 	turn_camera_to_left();
-	// if else pour toutes les touches
-	// en fonction de la touche on va soit modifier la posriiton du jouer soit la direction des rayons
+	else if (keycode == FLECHE_G)
+		(*graph)->rotate_gauche = 1;
+	else if (keycode == FLECHE_D)
+		(*graph)->rotate_droite = 1;
+	else if (keycode == W_AVANT)
+		(*graph)->avancer = 1;
+	else if (keycode == A_GAUCHE)
+		(*graph)->a_gauche = 1;
+	else if (keycode == S_ARRIERE)
+		(*graph)->reculer = 1;
+	else if (keycode == D_DROITE)
+		(*graph)->a_droite = 1;
 }
 
-// void	turn_camera_to_right(t_graphics **graph)
-// {
-// 	(*graph)->dir_x = 
-// }
+void	stop_mouv(int keycode, t_graphics **graph) // ici je vais remetrre les flags a 0 quand une touche est relache
+{
+	if (keycode == FLECHE_G)
+		(*graph)->rotate_gauche = 0;
+	else if (keycode == FLECHE_D)
+		(*graph)->rotate_droite = 0;
+	else if (keycode == W_AVANT)
+		(*graph)->avancer = 0;
+	else if (keycode == A_GAUCHE)
+		(*graph)->a_gauche = 0;
+	else if (keycode == S_ARRIERE)
+		(*graph)->reculer = 0;
+	else if (keycode == D_DROITE)
+		(*graph)->a_droite = 0;
+}

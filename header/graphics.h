@@ -3,12 +3,14 @@
 
 # define WIDTH 2560
 # define HEIGHT 1440
-# define FLECHE_G 65361
-# define FLECHE_D 65363
-# define W_AVANT
-# define A_GAUCHE
-# define S_ARRIERE
-# define D_DROITE
+# define FLECHE_G 65363
+# define FLECHE_D 65361
+# define W_AVANT 119
+# define A_GAUCHE 97
+# define S_ARRIERE 115
+# define D_DROITE 100
+# define SPEED
+
 // # define PI 3.14159265358 deja dispo dans la lib math
 
 #include "../minilibx-linux/mlx.h"
@@ -74,11 +76,17 @@ typedef struct s_graphics
 	t_pars	*pars;
 } t_graphics;
 
-void	algo(t_graphics **graph);
+void		algo(t_graphics **graph);
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x);
-double	ft_abs(double num);
-void	my_pixel_put(t_graphics *graph, int x, int y, int color);
-void	ft_exit(t_graphics *graph);
-void	mouv(int keycode, t_graphics **graph);
+double		ft_abs(double num);
+void		my_pixel_put(t_graphics *graph, int x, int y, int color);
+void		ft_exit(t_graphics *graph);
+void		mouv(int keycode, t_graphics **graph);
+void		stop_mouv(int keycode, t_graphics **graph);
+t_graphics	*init_data(t_pars *parse);
+void		game(t_graphics **graph);
+void		to_left(t_graphics **graph);
+void		to_right(t_graphics **graph);
+
 
 #endif
