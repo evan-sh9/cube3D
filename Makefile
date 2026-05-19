@@ -19,7 +19,8 @@ CFILE = main.c \
 		src/parsing/player_pos.c \
 		src/parsing/config/config.c \
 		src/parsing/config/find_conf_color.c \
-		src/parsing/debug.c
+		src/parsing/debug.c \
+		src/parsing/config/config_next.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D
@@ -37,7 +38,7 @@ all: $(MINILIBX) $(NAME)
 
 $(NAME): $(OBJS)
 	@printf "\n$(GREEN)[Compilation] Compilation principal ...$(RESET)\n\n"
-	cc $(OBJS) $(CFLAGS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
+	cc $(OBJS) $(CFLAGS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm -g3
 
 %.o: %.c
 	cc -c $(CFLAGS) $(INCLUDES) $< -o $@

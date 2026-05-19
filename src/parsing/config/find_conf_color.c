@@ -18,20 +18,20 @@ void n_setting_color_is_find(t_pars *pars)
 
 int	search_color(t_pars *pars, char *line)
 {
-    if (line[0] == '\0' || ft_strlen(line) < 3)
+	// printf("[DEBUG] line %s\n", line);
+    if (line[0] == '\0')
 		return (-1);
 	if (line[0] == 'F' && line[1] == ' ')
 	{
 		pars->find_t_var.F++;
 		return (F);
 	}
-	else if (line[0] == 'C' && line[1] == ' ')
+	if (line[0] == 'C' && line[1] == ' ')
 	{
 		pars->find_t_var.C++;
 		return (C);
 	}
-	n_setting_color_check(pars);
-	return (-1);
+	return (-2);
 }
 
 void	find_color(t_pars *pars)
@@ -41,19 +41,19 @@ void	find_color(t_pars *pars)
 
 	i = 0;
 	status = 0;
+	pars->find_t_var.F = 0;
+	pars->find_t_var.C = 0;
 	while (pars->file_content[i])
 	{
 		status = search_color(pars, pars->file_content[i]);
 		if (status == F)
 			claim_color(pars, F, i);
 		else if (status == C)
-        {
 			claim_color(pars, C, i);
-            i += 1;
+		n_setting_color_check(pars);
+		if (pars->find_t_var.F == 1 && pars->find_t_var.C == 1)
             break;
-        }
 		i++;
 	}
 	n_setting_color_is_find(pars);
-    pars->conf_height = i;
 }

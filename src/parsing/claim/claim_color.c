@@ -42,6 +42,7 @@ void    claim_color(t_pars *pars, int status, int line)
         comma_check(floor_color);
         split_floor_color = ft_split(floor_color, ',');
         pars->config.floor_color = char_split_to_int(split_floor_color);
+        // print_int_tab(pars->config.floor_color);
     }
     else if (status == C)
     {
@@ -49,5 +50,6 @@ void    claim_color(t_pars *pars, int status, int line)
         comma_check(celling_floor);
         split_celling_floor = ft_split(celling_floor, ',');
         pars->config.celling_floor = char_split_to_int(split_celling_floor);
+        // print_int_tab(pars->config.celling_floor);
     }
 }

@@ -79,7 +79,6 @@ void map_load(t_pars *pars)
 	spawn_checker(pars);
 	find_pl_pos(pars);
 	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
-	// print_double_tab(pars->map_copy);
 }
 
 //	printf("start pos | x : %i, y : %i\n", pars->pl_pos[0], pars->pl_pos[1]);

@@ -1,49 +1,14 @@
 #include "../../../header/cub3D.h"
 
-void n_setting_check(t_pars *pars)
+int	line_checker_next(t_pars *pars, char *line)
 {
-	if (pars->find_t_var.NO > 1)
-		invalid_map();
-	if (pars->find_t_var.SO > 1)
-		invalid_map();
-	if (pars->find_t_var.WE > 1)
-		invalid_map();
-	if (pars->find_t_var.EA > 1)
-		invalid_map();
-}
-
-void n_setting_is_find(t_pars *pars)
-{
-	if (pars->find_t_var.NO < 1)
-		invalid_map();
-	if (pars->find_t_var.SO < 1)
-		invalid_map();
-	if (pars->find_t_var.WE < 1)
-		invalid_map();
-	if (pars->find_t_var.EA < 1)
-		invalid_map();
-}
-
-int	line_checker(t_pars *pars, char *line)
-{
-	if (line[0] == '\0' || ft_strlen(line) < 3)
-		return (-1);
-	if (line[0] == 'N' && line[1] == 'O' && line[2] == ' ')
-	{
-		pars->find_t_var.NO++;
-		return (NO);
-	}
-	else if (line[0] == 'S' && line[1] == 'O' && line[2] == ' ')
-	{
-		pars->find_t_var.SO++;
-		return (SO);
-	}
-	else if (line[0] == 'W' && line[1] == 'E' && line[2] == ' ')
+	if (line[0] == 'W' && line[1] == 'E' && (line[2] == ' ' || line[2] == '\t'))
 	{
 		pars->find_t_var.WE++;
 		return (WE);
 	}
-	else if (line[0] == 'E' && line[1] == 'A' && line[2] == ' ')
+	else if (line[0] == 'E' && line[1] == 'A' && (line[2] == ' '
+			|| line[2] == '\t'))
 	{
 		pars->find_t_var.EA++;
 		return (EA);
@@ -52,10 +17,40 @@ int	line_checker(t_pars *pars, char *line)
 	return (-1);
 }
 
+int	line_checker(t_pars *pars, char *line)
+{
+	if (line[0] == '\0' || ft_strlen(line) < 3)
+		return (-1);
+	if (line[0] == 'N' && line[1] == 'O' && (line[2] == ' ' || line[2] == '\t'))
+	{
+		pars->find_t_var.NO++;
+		return (NO);
+	}
+	else if (line[0] == 'S' && line[1] == 'O' && (line[2] == ' '
+			|| line[2] == '\t'))
+	{
+		pars->find_t_var.SO++;
+		return (SO);
+	}
+	return (line_checker_next(pars, line));
+}
+
+int	conf_validation(t_pars *pars, int i)
+{
+	if (pars->find_t_var.NO && pars->find_t_var.SO && pars->find_t_var.WE
+		&& pars->find_t_var.EA && pars->find_t_var.F && pars->find_t_var.C)
+	{
+		pars->conf_height = i;
+		return (1);
+	}
+	invalid_map();
+	return (0);
+}
+
 void	find_texture(t_pars *pars)
 {
 	int	i;
-	int status;
+	int	status;
 
 	i = 0;
 	status = 0;
@@ -70,6 +65,9 @@ void	find_texture(t_pars *pars)
 			pars->config.west_texture = claim_line(pars->file_content[i] + 3);
 		else if (status == EA)
 			pars->config.east_texture = claim_line(pars->file_content[i] + 3);
+		else if (search_color(pars, pars->file_content[i]) == -2)
+			if (conf_validation(pars, i))
+				return ;
 		i++;
 	}
 	n_setting_is_find(pars);

@@ -46,7 +46,7 @@ typedef struct s_pars
 	char 			**map_copy;		// copy de la carte
 	char 			**file_content;	// tout le contenue du fichier
 	char 			*map_file;		// le fichie
-	int				pl_pos[2];
+	double			pl_pos[2];
 	int				file_height;
 	int				conf_height;
 	int				map_height;
@@ -86,5 +86,9 @@ void				find_color(t_pars *pars);
 void				print_double_tab(char **s);
 void				print_int_tab(int *s);
 
+
+int					search_color(t_pars *pars, char *line);
+void 				n_setting_check(t_pars *pars);
+void 				n_setting_is_find(t_pars *pars);
 
 #endif
