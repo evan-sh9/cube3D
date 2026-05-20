@@ -87,6 +87,7 @@ t_graphics	*init_data(t_pars *parse);
 void		game(t_graphics **graph);
 void		to_left(t_graphics **graph);
 void		to_right(t_graphics **graph);
+void		up(t_graphics **graph);
 
 
 #endif

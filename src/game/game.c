@@ -6,8 +6,8 @@ void	game(t_graphics **graph)
 		to_left(graph);
 	if ((*graph)->rotate_droite)
 		to_right(graph);
-	// if ((*graph)->avancer)
-	// 	up(graph);
+	if ((*graph)->avancer)
+		up(graph);
 	// if ((*graph)->reculer)
 	// 	down(graph);
 	// if ((*graph)->a_droite)
@@ -51,3 +51,17 @@ void	to_right(t_graphics **graph)
 	algo(graph);
 }
 
+void	up(t_graphics **graph)
+{
+	double new_y;
+
+	new_y = (*graph)->pos_y - 0.03;
+	if (new_y < 0)
+		return ;
+	if ((*graph)->map[(int)new_y][(int)(*graph)->pos_x] && (*graph)->map[(int)new_y][(int)(*graph)->pos_x] != '1')
+	{
+		(*graph)->pos_y = new_y;
+		algo(graph);
+	}
+	return ;
+}
