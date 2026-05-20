@@ -2,7 +2,7 @@
 
 void	algo(t_graphics **graph)
 {
-	double	x; // pour la boucle pour faire toutes les colonnes de pixel de l'ecran
+	int	x; // pour la boucle pour faire toutes les colonnes de pixel de l'ecran
 
 	x = 0;
 	while (x < WIDTH)

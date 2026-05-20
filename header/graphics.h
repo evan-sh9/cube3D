@@ -9,7 +9,8 @@
 # define A_GAUCHE 97
 # define S_ARRIERE 115
 # define D_DROITE 100
-# define SPEED
+# define SPEED 2.0
+# define ROT_SPEED 2.0
 
 // # define PI 3.14159265358 deja dispo dans la lib math
 
@@ -19,6 +20,7 @@
 #include <math.h>
 #include "../src/garbage_collector/gc.h"
 #include <stdlib.h>
+#include <sys/time.h>
 
 typedef struct s_graphics
 {
@@ -38,9 +40,13 @@ typedef struct s_graphics
 	double	plane_x; // le plan x
 	double	plane_y; // le plan y
 	
-	double	time_now; // les time c'est pour le temps de chque frame et les fps
-	double	old_time;
-
+	//double	time_now; // les time c'est pour le temps de chque frame et les fps
+	//double	old_time;
+	struct timeval	old_time_struct;
+	struct timeval	time_now_struct;
+	double			delta_time;
+	double			old_time;
+	double			time_now;
 	double	ray_x; // le rayon qu'on calcule pour chaque camera_x (pour chaque colonne de l'ecran)
 	double	ray_y; // pareil mais en y
 
@@ -74,6 +80,8 @@ typedef struct s_graphics
 	int		line_size; // la taille d'une ligne en byte
 	int		endian;
 	t_pars	*pars;
+
+	double	angle;
 } t_graphics;
 
 void		algo(t_graphics **graph);
@@ -88,6 +96,8 @@ void		game(t_graphics **graph);
 void		to_left(t_graphics **graph);
 void		to_right(t_graphics **graph);
 void		up(t_graphics **graph);
-
+void		down(t_graphics **graph);
+void		right(t_graphics **graph);
+void		left(t_graphics **graph);
 
 #endif

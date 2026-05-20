@@ -50,7 +50,7 @@ int main(int ac, char **av)
 	graph->window = mlx_new_window(graph->mlx, WIDTH, HEIGHT, "game");
 	graph->img = mlx_new_image(graph->mlx, WIDTH, HEIGHT);
 	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px, &graph->line_size, &graph->endian);
-
+	gettimeofday(&graph->time_now_struct, NULL);
 	algo(&graph);
 	mlx_hook(graph->window, 2, 1L<<0, (void *)mouv, &graph);
 	mlx_hook(graph->window, 3, 1L<<1, (void *)stop_mouv, &graph);
@@ -62,3 +62,15 @@ int main(int ac, char **av)
     // map_load(&pars);
     return 0;
 }
+
+	// double	new_y;
+
+	// new_y = (*graph)->pos_y - 0.07;
+	// if (new_y < 0)
+	// 	return ;
+	// if ((*graph)->map[(int)new_y][(int)(*graph)->pos_x] && (*graph)->map[(int)new_y][(int)(*graph)->pos_x] != '1')
+	// {
+	// 	(*graph)->pos_y = new_y;
+	// 	algo(graph);
+	// }
+	// return ;
