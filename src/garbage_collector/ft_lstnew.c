@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:24:33 by adjelili          #+#    #+#             */
-/*   Updated: 2026/02/24 11:44:02 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:21:50 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
-
-/*#include <stdio.h>
-
-int main(void)
-{
-	t_list *new_node2;
-	int nb = 222;
-	new_node2 = ft_lstnew(nb);
-	printf("%d", new_node2->content);
-	return (0);
-}*/

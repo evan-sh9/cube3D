@@ -1,12 +1,44 @@
-#include "header/parsing.h"
+#include "header/cub3D.h"
 
 int main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
     t_pars pars;
+	t_graphics *graph;
 
     if (ac != 2)
         return (1);
-    pars.map_file = av[1];
-    map_load(&pars);
+	pars.map_file = av[1];
+	map_load(&pars);
+	graph = ft_malloc(1, sizeof(t_graphics));
+
+	graph->map = ft_malloc(1, sizeof(char *) * 25); // 24 lignes + NULL
+	graph->pos_x = 11.1;
+	graph->pos_y = 12.0;
+
+	graph->dir_x = -1.0; // ca pointe vers la gauche de la map 
+	graph->dir_y = 0.0;
+
+	graph->plane_x = 0.0;
+	graph->plane_y = 0.66;
+	graph->camera_x = 0;
+	graph->step_x = 0;
+	graph->step_y = 0;
+	graph->mlx = mlx_init();
+	graph->window = mlx_new_window(graph->mlx, WIDTH, HEIGHT, "game");
+	graph->img = mlx_new_image(graph->mlx, WIDTH, HEIGHT);
+	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px, &graph->line_size, &graph->endian);
+	graph->time_now = get_time_of_day_ms();
+	graph->sword = get_addr_img(graph->mlx, "textures/diamond_sword.xpm");
+	//algo(&graph);
+	mlx_hook(graph->window, 2, 1L<<0, (void *)mouv, &graph);
+	mlx_hook(graph->window, 3, 1L<<1, (void *)stop_mouv, &graph);
+	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);
+	mlx_loop_hook(graph->mlx, (void *)game, &graph);
+	mlx_loop(graph->mlx);
+    //     return (1);
+    // pars.map_file = av[1];
+    // 
     return 0;
 }

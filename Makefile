@@ -23,6 +23,15 @@ CFILE = main.c \
 		src/parsing/config/find_conf_color.c \
 		src/parsing/debug.c \
 		src/parsing/config/config_utils.c
+		src/garbage_collector/garbage_collector.c \
+		src/garbage_collector/ft_lstnew.c \
+		src/garbage_collector/ft_lstadd_back.c \
+		src/garbage_collector/ft_calloc.c \
+		src/game/algo.c \
+		src/game/hook.c \
+		src/game/game.c \
+		src/game/utils.c \
+		src/game/sword.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D

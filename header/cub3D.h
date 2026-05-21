@@ -5,9 +5,12 @@
 # include "gnl.h"
 # include "parsing.h"
 # include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "graphics.h"
+#include "../src/garbage_collector/gc.h"
+#include <math.h>
 
 typedef struct s_pars	t_pars;
 typedef struct config	t_config;
