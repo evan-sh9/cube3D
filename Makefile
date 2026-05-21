@@ -22,7 +22,7 @@ CFILE = main.c \
 		src/parsing/config/config.c \
 		src/parsing/config/find_conf_color.c \
 		src/parsing/debug.c \
-		src/parsing/config/config_utils.c
+		src/parsing/config/config_utils.c \
 		src/garbage_collector/garbage_collector.c \
 		src/garbage_collector/ft_lstnew.c \
 		src/garbage_collector/ft_lstadd_back.c \

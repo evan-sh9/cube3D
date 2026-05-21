@@ -65,8 +65,8 @@ void	up(t_graphics **graph)
 			* SPEED * (*graph)->delta_time);
 	if (new_x < 0 || new_y < 0)
 		return ;
-	if ((*graph)->map[(int)new_y][(int)new_x]
-		&& (*graph)->map[(int)new_y][(int)new_x] != '1')
+	if ((*graph)->pars->map[(int)new_y][(int)new_x]
+		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -85,8 +85,8 @@ void	down(t_graphics **graph)
 		- ((*graph)->dir_x * SPEED * (*graph)->delta_time);
 	if (new_x < 0 || new_y < 0)
 		return ;
-	if ((*graph)->map[(int)new_y][(int)new_x]
-		&& (*graph)->map[(int)new_y][(int)new_x] != '1')
+	if ((*graph)->pars->map[(int)new_y][(int)new_x]
+		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -105,8 +105,8 @@ void	right(t_graphics **graph)
 		+ ((*graph)->plane_x * SPEED * (*graph)->delta_time);
 	if (new_x < 0 || new_y < 0)
 		return ;
-	if ((*graph)->map[(int)new_y][(int)new_x]
-		&& (*graph)->map[(int)new_y][(int)new_x] != '1')
+	if ((*graph)->pars->map[(int)new_y][(int)new_x]
+		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -125,8 +125,8 @@ void	left(t_graphics **graph)
 			* SPEED * (*graph)->delta_time);
 	if (new_x < 0 || new_y < 0)
 		return ;
-	if ((*graph)->map[(int)new_y][(int)new_x]
-		&& (*graph)->map[(int)new_y][(int)new_x] != '1')
+	if ((*graph)->pars->map[(int)new_y][(int)new_x]
+		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
