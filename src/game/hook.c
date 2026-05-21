@@ -43,7 +43,7 @@ void	mouv(int keycode, t_graphics **graph)
 		(*graph)->a_droite = 1;
 }
 
-void	stop_mouv(int keycode, t_graphics **graph) // ici je vais remetrre les flags a 0 quand une touche est relache
+void	stop_mouv(int keycode, t_graphics **graph)
 {
 	if (keycode == FLECHE_G)
 		(*graph)->rotate_gauche = 0;

@@ -50,8 +50,9 @@ int main(int ac, char **av)
 	graph->window = mlx_new_window(graph->mlx, WIDTH, HEIGHT, "game");
 	graph->img = mlx_new_image(graph->mlx, WIDTH, HEIGHT);
 	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px, &graph->line_size, &graph->endian);
-	gettimeofday(&graph->time_now_struct, NULL);
-	algo(&graph);
+	graph->time_now = get_time_of_day_ms();
+	graph->sword = get_addr_img(graph->mlx, "textures/diamond_sword.xpm");
+	//algo(&graph);
 	mlx_hook(graph->window, 2, 1L<<0, (void *)mouv, &graph);
 	mlx_hook(graph->window, 3, 1L<<1, (void *)stop_mouv, &graph);
 	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);

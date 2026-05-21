@@ -1,16 +1,16 @@
 #ifndef GRAPHICS_H
 # define GRAPHICS_H
 
-# define WIDTH 2560
-# define HEIGHT 1440
+# define WIDTH 1160
+# define HEIGHT 820
 # define FLECHE_G 65363
 # define FLECHE_D 65361
 # define W_AVANT 119
 # define A_GAUCHE 97
 # define S_ARRIERE 115
 # define D_DROITE 100
-# define SPEED 2.0
-# define ROT_SPEED 2.0
+# define SPEED 5.0
+# define ROT_SPEED 4.0
 
 // # define PI 3.14159265358 deja dispo dans la lib math
 
@@ -82,6 +82,10 @@ typedef struct s_graphics
 	t_pars	*pars;
 
 	double	angle;
+	void	*sword;
+
+	double	height_sword;
+	double	width_sword;
 } t_graphics;
 
 void		algo(t_graphics **graph);
@@ -99,5 +103,11 @@ void		up(t_graphics **graph);
 void		down(t_graphics **graph);
 void		right(t_graphics **graph);
 void		left(t_graphics **graph);
+double		get_time_of_day_ms(void);
+void		display(t_graphics *graph, int x, int side);
+int			hit_wall(t_graphics *graph);
+void		set_delta(t_graphics *graph, double ray_x, double ray_y);
+void		set_side_step(t_graphics *graph, double ray_x, double ray_y);
+void		*get_addr_img(void *mlx_ptr, char *filename);
 
 #endif
