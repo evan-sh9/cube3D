@@ -5,6 +5,14 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+typedef struct s_texture
+{
+	void				*north_wall;
+	void				*south_wall;
+	void				*east_wall;
+	void				*west_wall;
+}						t_tex;
+
 typedef struct config
 {
 	char		*floor_color;
@@ -22,6 +30,7 @@ typedef struct s_pars
 	char		*map_file;
 	int			map_height;
 	int			map_width;
+	t_tex		tex;
 	t_config	config;
 }				t_pars;
 
@@ -30,4 +39,10 @@ void			map_copy(t_pars *pars);
 void			claim_map(t_pars *pars);
 void			file_check(t_pars *pars);
 
+/*
+	graph->pars->conf
+			   -> texture
+*/
+
 #endif
+
