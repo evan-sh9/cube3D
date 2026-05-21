@@ -67,6 +67,7 @@ void				file_check(t_pars *pars);
 void				color_validity(char **s, int size);
 void				flood_fill(t_pars *pars, int x, int y);
 void				spawn_checker(t_pars *pars);
+void				texture_check(t_pars *pars);
 
 // claim
 

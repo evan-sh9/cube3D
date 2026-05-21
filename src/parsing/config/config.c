@@ -83,6 +83,7 @@ void	config_load(t_pars *pars)
 	pars->find_t_var.C = 0;
 	find_texture(pars);
 	find_color(pars);
+	texture_check(pars);
 }
 
 /*

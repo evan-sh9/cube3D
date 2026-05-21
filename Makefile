@@ -10,17 +10,19 @@ CFILE = main.c \
 		src/utils/ft_split.c \
 		src/utils/ft_atoi.c \
 		src/utils/exit_free.c \
+		src/utils/count_element.c \
 		src/parsing/claim/claim_map.c \
 		src/parsing/claim/claim_content.c \
 		src/parsing/claim/claim_color.c \
 		src/parsing/check/file_validity.c \
 		src/parsing/check/map_validity.c \
+		src/parsing/check/texture_validity.c \
 		src/parsing/check/color_validity.c \
 		src/parsing/player_pos.c \
 		src/parsing/config/config.c \
 		src/parsing/config/find_conf_color.c \
 		src/parsing/debug.c \
-		src/parsing/config/config_next.c
+		src/parsing/config/config_utils.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D
