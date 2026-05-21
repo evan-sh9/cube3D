@@ -30,6 +30,14 @@ typedef struct s_find_texture
 	int				C;
 }					t_find_texture;
 
+typedef struct s_texture
+{
+    void                *north_wall;
+    void                *south_wall;
+    void                *east_wall;
+    void                *west_wall;
+}                        t_tex;
+
 typedef struct config
 {
 	int				*floor_color;
@@ -42,17 +50,18 @@ typedef struct config
 
 typedef struct s_pars
 {
-	char			**map;			// la carte
-	char 			**map_copy;		// copy de la carte
-	char 			**file_content;	// tout le contenue du fichier
-	char 			*map_file;		// le fichie
+	char			**map;
+	char 			**map_copy;
+	char 			**file_content;
+	char 			*map_file;
 	double			pl_pos[2];
 	int				file_height;
 	int				conf_height;
 	int				map_height;
 	int				map_width;
 	int				spawn_count;
-	t_config		config;
+    t_tex			tex;
+    t_config		config;
 	t_find_texture	find_t_var;
 }					t_pars;
 
