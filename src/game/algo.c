@@ -83,9 +83,20 @@ void	display(t_graphics *graph, int x, int side)
 	}
 	while (y <= graph->lower_px)
 	{
-		color = 0xF5555;
 		if (side == 1)
-			color = color / 2;
+		{
+			if (graph->step_y == -1) // nord
+				color = 0x7E75FA; // bleu
+			else	// sud
+				color = 0xF17EDC; // rose
+		}
+		else
+		{
+			if (graph->step_x == 1) // est
+				color = 0xFFA570; // orange
+			else	// sud
+				color = 0x81FF70; // vert
+		}
 		my_pixel_put(graph, x, y, color);
 		y++;
 	}
@@ -95,6 +106,39 @@ void	display(t_graphics *graph, int x, int side)
 		y++;
 	}
 }
+/*
+	while (y <= graph->lower_px)
+	{
+		color = 0xF5555;
+		if (side == 1)
+			color = color / 2;
+		my_pixel_put(graph, x, y, color);
+		y++;
+	}
+	/====================================/
+	while (y <= graph->lower_px)
+	{
+		int color;
+		if (side == 1)
+		{
+			if (graph->step_y == -1) // nord
+				color = 0x7E75FA; // bleu
+			else	// sud
+				color = 0xF17EDC; // rose
+		}
+		else
+		{
+			if (graph->step_x == 1) // est
+				color = 0xFFA570; // orange
+			else	// sud
+				color = 0x81FF70; // vert
+		}
+		my_pixel_put(graph, x, y, color);
+		y++;
+	}
+*/
+
+
 
 void	set_delta(t_graphics *graph, double ray_x, double ray_y)
 {

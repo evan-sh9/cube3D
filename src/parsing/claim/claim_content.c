@@ -76,7 +76,6 @@ void map_load(t_pars *pars)
     claim_map_copy(pars);
 	spawn_checker(pars);
 	find_pl_pos(pars);
-	print_double_tab(pars->map);
 	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
 }
 
