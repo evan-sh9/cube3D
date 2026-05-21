@@ -1,23 +1,5 @@
 #include "../../header/cub3D.h"
 
-int	safe_malloc(char **ss, int pos, int len)
-{
-	int	i;
-
-	i = 0;
-	ss[pos] = malloc(len * sizeof(char));
-	if (!ss[pos])
-	{
-		while (i < pos)
-		{
-			free(ss[i++]);
-		}
-		free(ss);
-		return (1);
-	}
-	return (0);
-}
-
 static void	strlcpy_(char *dst, const char *src, size_t size)
 {
 	size_t	i;
@@ -74,8 +56,7 @@ static int	claim_word(char **ss, const char *s, char lim)
 		}
 		if (len)
 		{
-			if (safe_malloc(ss, i, len + 1))
-				return (1);
+			ss[i] = ft_malloc(len ,sizeof(char));
 			strlcpy_(ss[i], s - len, len + 1);
 			i++;
 		}
@@ -89,7 +70,7 @@ char	**ft_split(char const *s, char c)
 	int		l;
 
 	l = count_word(s, c);
-	sp = malloc((l + 1) * sizeof(char *));
+	sp = ft_malloc((l + 1), sizeof(char *));
 	if (!sp)
 		return (NULL);
 	sp[l] = NULL;

@@ -8,7 +8,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	ns = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	ns = ft_malloc((ft_strlen(s1) + ft_strlen(s2) + 1) ,sizeof(char));
 	if (!ns)
 		return (NULL);
 	while (s1[i])

@@ -14,10 +14,8 @@ int	file_height(char *s)
 	while (line)
 	{
 		i++;
-		// free(line);
 		line = get_next_line(fd);
 	}
-	// free(line);
 	close(fd);
 	return (i);
 }
@@ -58,11 +56,11 @@ void	claim_content(t_pars *pars)
 	pars->file_height = file_height(pars->map_file);
 	if (pars->file_height == -1)
 		exit(EXIT_FAILURE);
-	pars->file_content = malloc((pars->file_height + 1) * sizeof(char *));
+	pars->file_content = ft_malloc((pars->file_height + 1) , sizeof(char *));
 	fd = open(pars->map_file, O_RDONLY);
 	if (fd == -1)
 	{
-		// free all
+		ft_free_all_malloc();
 		exit(EXIT_FAILURE);
 	}
 	claim(pars, fd);
@@ -78,6 +76,7 @@ void map_load(t_pars *pars)
     claim_map_copy(pars);
 	spawn_checker(pars);
 	find_pl_pos(pars);
+	print_double_tab(pars->map);
 	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
 }
 

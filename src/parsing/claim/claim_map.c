@@ -5,7 +5,7 @@ void	claim_map_copy(t_pars *pars)
 	int	i;
 
 	i = 0;
-	pars->map_copy = malloc((pars->map_height + 1) * sizeof(char *));
+	pars->map_copy = ft_malloc((pars->map_height + 1), sizeof(char *));
 	if (!pars->map_copy)
 		return ;
 	while (pars->map[i])
@@ -22,7 +22,7 @@ void	claim_map(t_pars *pars)
 
 	i = 0;
 	pars->map_height = pars->file_height - pars->conf_height;
-	pars->map = malloc((pars->map_height + 1) * sizeof(char *));
+	pars->map = ft_malloc((pars->map_height + 1) ,sizeof(char *));
 	if (!pars->map)
 		return ;
 	while (i < pars->map_height)

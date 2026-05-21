@@ -19,7 +19,7 @@ int     *char_split_to_int(char **s)
     i = 0;
     size = double_tab_size(s);
     color_validity(s, size);
-    int_split = malloc((size + 1) * sizeof(int));
+    int_split = ft_malloc((size + 1) , sizeof(int));
     while (i < size)
     {
         int_split[i] = ft_atoi(s[i]);

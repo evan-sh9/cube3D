@@ -2,7 +2,7 @@
 
 static void exit_atoi()
 {
-	// ft_free_all_malloc();
+	ft_free_all_malloc();
 	printf("Error : Invalid size\n");
 	exit(EXIT_FAILURE);
 }
