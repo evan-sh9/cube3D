@@ -105,9 +105,21 @@ t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
 	}
 	while (y <= graph->lower_px)
 	{
-		int color = 0xFF0000;
+		int color;
 		if (side == 1)
-			color = color / 2;
+		{
+			if (graph->step_y == -1) // nord
+				color = 0x7E75FA; // bleu
+			else	// sud
+				color = 0xF17EDC; // rose
+		}
+		else
+		{
+			if (graph->step_x == 1) // est
+				color = 0xFFA570; // orange
+			else	// sud
+				color = 0x81FF70; // vert
+		}
 		my_pixel_put(graph, x, y, color);
 		y++;
 	}
