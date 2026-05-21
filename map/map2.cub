@@ -1,7 +1,7 @@
-NO texture/bedrock.xpm
-SO texture/cobblestone.xpm
-WE texture/bedrock.xpm
-EA texture/bedrock.xpm
+NO textures/bedrock.xpm
+SO textures/cobblestone.xpm
+WE textures/bedrock.xpm
+EA textures/bedrock.xpm
 
 F 220,100,0
 C 225,30,25
