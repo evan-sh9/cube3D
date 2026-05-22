@@ -30,18 +30,22 @@ typedef struct s_find_texture
 	int				C;
 }					t_find_texture;
 
-typedef	struct t_img
+typedef	struct s_img
 {
-	
-} s_img;
+	void				*img;
+	void				*img_addr;
+	int					*bits_pp;
+	int 				*size_line;
+	int					*endian;
+} t_img;
 
 
 typedef struct s_texture
 {
-    void                *north_wall;
-    void                *south_wall;
-    void                *east_wall;
-    void                *west_wall;
+    t_img               north_wall;
+    t_img               south_wall;
+    t_img               east_wall;
+    t_img               west_wall;
 }                        t_tex;
 
 typedef struct config
