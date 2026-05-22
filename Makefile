@@ -28,6 +28,7 @@ CFILE = main.c \
 		src/garbage_collector/ft_lstnew.c \
 		src/garbage_collector/ft_lstadd_back.c \
 		src/garbage_collector/ft_calloc.c \
+		src/texture_load.c \
 		src/game/algo.c \
 		src/game/hook.c \
 		src/game/game.c \

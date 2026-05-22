@@ -4,7 +4,7 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
-	t_pars 		pars;
+	t_pars pars = {0};
 	t_graphics *graph;
 
 	if (ac != 2)
@@ -28,6 +28,7 @@ int	main(int ac, char **av)
 	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px,
 			&graph->line_size, &graph->endian);
 	graph->time_now = get_time_of_day_ms();
+	load_texture(graph);
 	mlx_hook(graph->window, 2, 1L << 0, (void *)mouv, &graph);
 	mlx_hook(graph->window, 3, 1L << 1, (void *)stop_mouv, &graph);
 	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);
