@@ -34,9 +34,9 @@ typedef	struct s_img
 {
 	void				*img;
 	void				*img_addr;
-	int					*bits_pp;
-	int 				*size_line;
-	int					*endian;
+	int					bits_pp;
+	int 				size_line;
+	int					endian;
 } t_img;
 
 

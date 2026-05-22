@@ -73,6 +73,7 @@ int	hit_wall(t_graphics *graph)
 void	display(t_graphics *graph, int x, int side)
 {
 	int	y;
+	int	texX;
 	int	color;
 
 	y = 0;
@@ -93,10 +94,11 @@ void	display(t_graphics *graph, int x, int side)
 	{
 		graph->tex_map.wall_x = graph->pos_y + graph->perpWallDist * graph->ray_y;
 		graph->tex_map.wall_x = claim_decimal(graph->tex_map.wall_x);
+		texX = (int)(graph->tex_map.wall_x * (double)TEX_WIDTH);
 		if (graph->ray_x > 0)
-			graph->tex_map.wall_x = TEX_WIDTH - graph->tex_map.wall_x - 1;
+			graph->tex_map.wall_x = TEX_WIDTH - texX - 1;
 	}
-	graph->tex_map.step = TEX_HEIGHT / graph->wall_height;
+	graph->tex_map.step = 1.0 * TEX_HEIGHT / graph->wall_height;
 	graph->tex_map.text_pos = (graph->higher_px - (HEIGHT / 2) + (graph->wall_height / 2)) * graph->tex_map.step;
 	/* ============================================================= */
 	while (y <= graph->lower_px)
