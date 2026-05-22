@@ -3,6 +3,8 @@
 
 # define WIDTH 1160
 # define HEIGHT 820
+// # define WIDTH 2560
+// # define HEIGHT 1240
 # define FLECHE_G 65363
 # define FLECHE_D 65361
 # define W_AVANT 119
