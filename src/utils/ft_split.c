@@ -56,7 +56,9 @@ static int	claim_word(char **ss, const char *s, char lim)
 		}
 		if (len)
 		{
-			ss[i] = ft_malloc(len ,sizeof(char));
+			ss[i] = ft_malloc(len + 1, sizeof(char));
+            if (!ss[i])
+                return (1);
 			strlcpy_(ss[i], s - len, len + 1);
 			i++;
 		}

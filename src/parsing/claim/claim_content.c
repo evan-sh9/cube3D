@@ -55,7 +55,7 @@ void	claim_content(t_pars *pars)
 {	
 	int		fd;
 
-	pars->file_height = 17;
+	pars->file_height = file_height(pars->map_file);
 	if (pars->file_height == -1)
 		exit(EXIT_FAILURE);
 	pars->file_content = ft_malloc((pars->file_height + 1) , sizeof(char *));
