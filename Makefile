@@ -10,6 +10,7 @@ CFILE = main.c \
 		src/utils/ft_split.c \
 		src/utils/ft_atoi.c \
 		src/utils/exit_free.c \
+		src/utils/claim_decimal.c \
 		src/utils/count_element.c \
 		src/parsing/claim/claim_map.c \
 		src/parsing/claim/claim_content.c \
@@ -33,7 +34,7 @@ CFILE = main.c \
 		src/game/utils.c \
 		src/game/sword.c
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D
 OBJS = $(CFILE:.c=.o)
 
@@ -49,10 +50,10 @@ all: $(MINILIBX) $(NAME)
 
 $(NAME): $(OBJS)
 	@printf "\n$(GREEN)[Compilation] Compilation principal ...$(RESET)\n\n"
-	cc $(OBJS) $(CFLAGS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm -g3
+	cc $(OBJS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
 
 %.o: %.c
-	cc -c $(CFLAGS) $(INCLUDES) $< -o $@
+	cc -c $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"

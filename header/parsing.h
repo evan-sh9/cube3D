@@ -30,6 +30,12 @@ typedef struct s_find_texture
 	int				C;
 }					t_find_texture;
 
+typedef	struct t_img
+{
+	
+} s_img;
+
+
 typedef struct s_texture
 {
     void                *north_wall;

@@ -6,7 +6,7 @@ char	*ft_strdup(char *s)
 	int		i;
 
 	i = 0;
-	new = ft_malloc(1, (ft_strlen(s) + 1) * sizeof(char));
+	new = ft_malloc((ft_strlen(s) + 1) ,sizeof(char));
 	if (!new)
 		return (NULL);
 	while (s[i])

@@ -2,21 +2,21 @@
 # define CUB3D_H
 
 # include "../minilibx-linux/mlx.h"
+# include "../src/garbage_collector/gc.h"
 # include "gnl.h"
+# include "graphics.h"
 # include "parsing.h"
 # include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "graphics.h"
-#include "../src/garbage_collector/gc.h"
-#include <math.h>
+# include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_pars	t_pars;
 typedef struct config	t_config;
 
 // utils
-
+double					claim_decimal(double n);
 void					invalid_map(void);
 void					invalid_file(void);
 void					comma_check(char *s);

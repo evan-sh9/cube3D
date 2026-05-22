@@ -3,6 +3,8 @@
 
 # define WIDTH 1160
 # define HEIGHT 820
+# define TEX_WIDTH 16
+# define TEX_HEIGHT 16
 # define FLECHE_G 65363
 # define FLECHE_D 65361
 # define W_AVANT 119
@@ -21,6 +23,23 @@
 #include "../src/garbage_collector/gc.h"
 #include <stdlib.h>
 #include <sys/time.h>
+
+typedef struct s_texture_mapping
+{
+	double	wall_x;
+	double	wall_y;
+	double	text_pos;
+	double	step;
+}		t_texture_mapping;
+
+
+/*
+
+    int texX = int(wallX * double(texWidth));
+    if(side == 0 && rayDirX > 0) texX = texWidth - texX - 1;
+    if(side == 1 && rayDirY < 0) texX = texWidth - texX - 1;
+
+ */
 
 typedef struct s_graphics
 {
@@ -80,7 +99,7 @@ typedef struct s_graphics
 	int		line_size; // la taille d'une ligne en byte
 	int		endian;
 	t_pars	*pars;
-
+	t_texture_mapping tex_map;
 	double	angle;
 	void	*sword;
 
