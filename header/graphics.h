@@ -82,7 +82,11 @@ typedef struct s_graphics
 	t_pars	*pars;
 
 	double	angle;
-	void	*sword;
+	void	*sword_img;
+	void	*sword_addr;
+	int		sword_pixel;
+	int		sword_line_size;
+	int		sword_endian;
 
 	double	height_sword;
 	double	width_sword;
@@ -109,5 +113,7 @@ int			hit_wall(t_graphics *graph);
 void		set_delta(t_graphics *graph, double ray_x, double ray_y);
 void		set_side_step(t_graphics *graph, double ray_x, double ray_y);
 void		*get_addr_img(void *mlx_ptr, char *filename);
+void		*get_addr_sword(t_graphics *graph);
+void		put_sword(t_graphics **graph);
 
 #endif

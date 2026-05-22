@@ -20,8 +20,8 @@ t_graphics	*init_data(t_pars *parse)
 	graph->addr = mlx_get_data_addr(graph->img,
 			&graph->bits_per_px, &graph->line_size, &graph->endian);
 	graph->pars = parse;
-	graph->sword = get_addr_xpm_img(graph->mlx, "textures/diamond_sword.xpm");
+	graph->sword_img = get_addr_img(graph->mlx, "textures/diamond_sword.xpm");
 	graph->height_sword = HEIGHT * 0.30;
-	graph->width_sword = graph->height_sword * (64 / 64);
+	graph->width_sword = graph->height_sword * (64.0 / 64.0);
 	return (graph);
 }
