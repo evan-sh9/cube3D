@@ -57,6 +57,7 @@ void	find_texture(t_pars *pars)
 	while (pars->file_content[i])
 	{
 		status = line_checker(pars, pars->file_content[i]);
+		printf("line texture : %s\n", pars->file_content[i]);
 		if (status == NO)
 			pars->config.north_texture = claim_line(pars->file_content[i] + 3);
 		else if (status == SO)

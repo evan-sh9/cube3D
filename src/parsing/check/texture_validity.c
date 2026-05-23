@@ -27,7 +27,7 @@ void	path_join(t_pars *pars)
 	tmp = ft_split(pars->config.north_texture, ' ');
 	pars->config.north_texture = tmp[0];
 	tmp = ft_split(pars->config.east_texture, ' ');
-	pars->config.south_texture = tmp[0];
+	pars->config.east_texture = tmp[0];
 	tmp = ft_split(pars->config.west_texture, ' ');
 	pars->config.west_texture = tmp[0];
 	tmp = ft_split(pars->config.east_texture, ' ');

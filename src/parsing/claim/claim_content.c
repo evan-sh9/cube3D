@@ -14,10 +14,8 @@ int	file_height(char *s)
 	while (line)
 	{
 		i++;
-		// free(line);
 		line = get_next_line(fd);
 	}
-	// free(line);
 	close(fd);
 	return (i);
 }
