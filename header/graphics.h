@@ -132,21 +132,7 @@ void		set_side_step(t_graphics *graph, double ray_x, double ray_y);
 void		*get_addr_img(void *mlx_ptr, char *filename);
 void		*get_addr_sword(t_graphics *graph);
 void		put_sword(t_graphics **graph);
+void		display(t_graphics *graph, int x, int side);
 void		minimap(t_graphics *graph);
 
 #endif
-
-/*
-
-for(int y = drawStart; y<drawEnd; y++)
-{
-	// Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
-	int texY = (int)texPos & (texHeight - 1);
-	texPos += step;
-	Uint32 color = texture[texNum][texWidth * texY + texX];
-	//make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
-	if(side == 1) color = (color >> 1) & 8355711;
-	buffer[y][x] = color;
-      }
-
-*/

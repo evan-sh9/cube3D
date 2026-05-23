@@ -57,7 +57,6 @@ void	find_texture(t_pars *pars)
 	while (pars->file_content[i])
 	{
 		status = line_checker(pars, pars->file_content[i]);
-		printf("line texture : %s\n", pars->file_content[i]);
 		if (status == NO)
 			pars->config.north_texture = claim_line(pars->file_content[i] + 3);
 		else if (status == SO)
@@ -85,14 +84,6 @@ void	config_load(t_pars *pars)
 	find_texture(pars);
 	find_color(pars);
 	texture_check(pars);
-	printf("north path : %s \n", pars->config.north_texture);
-	printf("south path : %s \n", pars->config.south_texture);
-	printf("west path : %s \n", pars->config.west_texture);
-	printf("east path : %s \n", pars->config.east_texture);
-	printf("floor color : \n");
-	print_int_tab(pars->config.floor_color);
-	printf("celling color : \n");
-	print_int_tab(pars->config.celling_floor);
 }
 
 /*

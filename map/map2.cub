@@ -1,7 +1,7 @@
-NO textures/bedrock.xpm
-WE textures/cobblestone.xpm
-EA textures/bedrock.xpm
-SO textures/cobblestone.xpm
+NO textures/planks_acacia.xpm
+WE textures/planks_big_oak.xpm
+EA textures/planks_jungle.xpm
+SO textures/planks_spruce.xpm
 
 F 220,100,0
 C 225,30,25
