@@ -27,6 +27,10 @@ int	main(int ac, char **av)
 	graph->img = mlx_new_image(graph->mlx, WIDTH, HEIGHT);
 	graph->addr = mlx_get_data_addr(graph->img, &graph->bits_per_px,
 			&graph->line_size, &graph->endian);
+	graph->sword_img = get_addr_img(graph->mlx, "textures/diamond_sword.xpm");
+	graph->sword_addr = get_addr_sword(graph);
+	graph->height_sword = HEIGHT * 0.30;
+	graph->width_sword = graph->height_sword * (64.0 / 64.0);
 	graph->time_now = get_time_of_day_ms();
 	load_texture(graph);
 	mlx_hook(graph->window, 2, 1L << 0, (void *)mouv, &graph);

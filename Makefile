@@ -1,3 +1,5 @@
+# 
+
 CFILE = main.c \
 		src/utils/ft_strchr.c \
 		src/utils/ft_strdup.c \
@@ -29,29 +31,40 @@ CFILE = main.c \
 		src/garbage_collector/ft_lstadd_back.c \
 		src/garbage_collector/ft_calloc.c \
 		src/texture_load.c \
-		src/game/algo.c \
-		src/game/hook.c \
-		src/game/game.c \
-		src/game/utils.c \
-		src/game/sword.c
+        src/game/algo.c \
+        src/game/hook.c \
+        src/game/game.c \
+        src/game/utils.c \
+        src/game/sword.c \
+		src/game/minimap.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D
 OBJS = $(CFILE:.c=.o)
 
+# Couleurs ANSI
 GREEN   := \033[0;32m
 YELLOW  := \033[0;33m
+CYAN    := \033[1;36m
 RESET   := \033[0m
 
 MINILIBX = minilibx-linux/libmlx.a
 MINILIBX_OBJ = minilibx-linux/obj
-INCLUDES = -I libmlx.a
+INCLUDES = -Iminilibx-linux
 
-all: $(MINILIBX) $(NAME)
+all: $(MINILIBX)
+	@printf "$(CYAN)"
+	@printf "  ____ _   _ ____ _____ ____  \n"
+	@printf " / ___| | | | __ )___ /|  _ \ \n"
+	@printf "| |   | | | |  _ \ |_ \| | | |\n"
+	@printf "| |___| |_| | |_) |__) | |_| |\n"
+	@printf " \____|\___/|____/____/|____/ \n"
+	@printf "$(RESET)\n"
+	@$(MAKE) $(NAME)
 
 $(NAME): $(OBJS)
-	@printf "\n$(GREEN)[Compilation] Compilation principal ...$(RESET)\n\n"
-	cc $(OBJS) -o $(NAME) -L -I -lmlx_Linux -Lminilibx-linux -lXext -lX11 -lm
+	@printf "\n$(GREEN)[Compilation] Compilation principale ...$(RESET)\n\n"
+	cc $(OBJS) $(CFLAGS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
 
 %.o: %.c
 	cc -c $(INCLUDES) $< -o $@
@@ -61,19 +74,15 @@ $(MINILIBX):
 	$(MAKE) -C minilibx-linux
 
 clean:
-	@printf "\n$(YELLOW)[Nettoyage] Nettoyage fichiés objets ...$(RESET)\n\n"
+	@printf "\n$(YELLOW)[Nettoyage] Nettoyage fichiers objets ...$(RESET)\n\n"
 	$(RM) $(OBJS)
-	$(RM) $(BOBJS)
 	$(MAKE) -C minilibx-linux clean
 
 fclean: clean
 	@printf "\n$(YELLOW)[Nettoyage] Nettoyage global ...$(RESET)\n\n"
 	$(RM) $(NAME)
-	$(RM) $(OBJS)
 	$(MAKE) -C minilibx-linux clean
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
-#-lmlx -lXext -lX11
