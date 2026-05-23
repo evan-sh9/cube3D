@@ -22,6 +22,7 @@
 #include "../src/garbage_collector/gc.h"
 #include <stdlib.h>
 #include <sys/time.h>
+
 typedef struct s_mini_map t_mini_map;
 
 typedef struct s_texture_mapping
@@ -100,12 +101,20 @@ typedef struct s_mini_map
 {
 	int		start_x;
 	int		start_y;
-	int		height;
-	int		width;
+	
 	double	pos_plyr_x; // le joueur sera tout le temps au millieu de la map
 	double	pos_plyr_y;
-	int		component_height; // la hauter de chaque carre de la map
-	int		component_width; // la largeur de chaque element de la map
+	
+	int		mini_map_size;
+	int		size_of_block;
+
+	int totalnb_squares;
+	int	nb_square_x;
+	int	nb_square_y;
+
+	int	total_size;
+
+	int	ray_minimap; // le rayon de ce qu'on voit sur l'ecran
 } t_mini_map;
 
 void		algo(t_graphics **graph);

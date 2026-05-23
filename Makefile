@@ -8,6 +8,7 @@ CFILE = main.c \
 		src/utils/ft_substr.c \
 		src/utils/ft_strncmp.c \
 		src/utils/gnl.c \
+		src/utils/ft_itoa.c \
 		src/utils/ft_strcpy.c \
 		src/utils/ft_split.c \
 		src/utils/ft_atoi.c \

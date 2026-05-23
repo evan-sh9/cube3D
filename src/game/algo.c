@@ -16,7 +16,7 @@ void	algo(t_graphics **graph)
 		x++;
 	}
 	put_sword(graph);
-	//minimap(*graph);
+	minimap(*graph);
 	mlx_put_image_to_window((*graph)->mlx,
 		(*graph)->window, (*graph)->img, 0, 0);
 }
