@@ -2,8 +2,9 @@
 
 double  claim_decimal(double n)
 {
-    double result;
+    double integer;
+    double dec;
 
-    modf(n, &result);
-    return (result);
+    dec = modf(n, &integer);
+    return (dec);
 }
