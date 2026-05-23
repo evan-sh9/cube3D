@@ -1,39 +1,40 @@
-# 
-
 CFILE = main.c \
-        src/utils/ft_strchr.c \
-        src/utils/ft_strdup.c \
-        src/utils/ft_strjoin.c \
-        src/utils/ft_strlen.c \
-        src/utils/ft_substr.c \
-        src/utils/ft_strncmp.c \
-        src/utils/gnl.c \
-        src/utils/ft_strcpy.c \
-        src/utils/ft_split.c \
-        src/utils/ft_atoi.c \
-        src/utils/exit_free.c \
-        src/utils/count_element.c \
-        src/parsing/claim/claim_map.c \
-        src/parsing/claim/claim_content.c \
-        src/parsing/claim/claim_color.c \
-        src/parsing/check/file_validity.c \
-        src/parsing/check/map_validity.c \
-        src/parsing/check/texture_validity.c \
-        src/parsing/check/color_validity.c \
-        src/parsing/player_pos.c \
-        src/parsing/config/config.c \
-        src/parsing/config/find_conf_color.c \
-        src/parsing/debug.c \
-        src/parsing/config/config_utils.c \
-        src/garbage_collector/garbage_collector.c \
-        src/garbage_collector/ft_lstnew.c \
-        src/garbage_collector/ft_lstadd_back.c \
-        src/garbage_collector/ft_calloc.c \
+		src/utils/ft_strchr.c \
+		src/utils/ft_strdup.c \
+		src/utils/ft_strjoin.c \
+		src/utils/ft_strlen.c \
+		src/utils/ft_substr.c \
+		src/utils/ft_strncmp.c \
+		src/utils/gnl.c \
+		src/utils/ft_strcpy.c \
+		src/utils/ft_split.c \
+		src/utils/ft_atoi.c \
+		src/utils/exit_free.c \
+		src/utils/claim_decimal.c \
+		src/utils/count_element.c \
+		src/parsing/claim/claim_map.c \
+		src/parsing/claim/claim_content.c \
+		src/parsing/claim/claim_color.c \
+		src/parsing/check/file_validity.c \
+		src/parsing/check/map_validity.c \
+		src/parsing/check/texture_validity.c \
+		src/parsing/check/color_validity.c \
+		src/parsing/player_pos.c \
+		src/parsing/config/config.c \
+		src/parsing/config/find_conf_color.c \
+		src/parsing/debug.c \
+		src/parsing/config/config_utils.c \
+		src/garbage_collector/garbage_collector.c \
+		src/garbage_collector/ft_lstnew.c \
+		src/garbage_collector/ft_lstadd_back.c \
+		src/garbage_collector/ft_calloc.c \
+		src/texture_load.c \
         src/game/algo.c \
         src/game/hook.c \
         src/game/game.c \
         src/game/utils.c \
-        src/game/sword.c
+        src/game/sword.c \
+		src/game/minimap.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D

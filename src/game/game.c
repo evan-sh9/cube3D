@@ -66,7 +66,11 @@ void	up(t_graphics **graph)
 	if (new_x < 0 || new_y < 0)
 		return ;
 	if ((*graph)->pars->map[(int)new_y][(int)new_x]
-		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
+		&& ((*graph)->pars->map[(int)new_y][(int)new_x] == '0'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'N'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'E'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'S'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'W'))
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -86,7 +90,11 @@ void	down(t_graphics **graph)
 	if (new_x < 0 || new_y < 0)
 		return ;
 	if ((*graph)->pars->map[(int)new_y][(int)new_x]
-		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
+		&& ((*graph)->pars->map[(int)new_y][(int)new_x] == '0'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'N'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'E'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'S'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'W'))
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -106,7 +114,11 @@ void	right(t_graphics **graph)
 	if (new_x < 0 || new_y < 0)
 		return ;
 	if ((*graph)->pars->map[(int)new_y][(int)new_x]
-		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
+		&& ((*graph)->pars->map[(int)new_y][(int)new_x] == '0'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'N'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'E'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'S'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'W'))
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
@@ -126,7 +138,11 @@ void	left(t_graphics **graph)
 	if (new_x < 0 || new_y < 0)
 		return ;
 	if ((*graph)->pars->map[(int)new_y][(int)new_x]
-		&& (*graph)->pars->map[(int)new_y][(int)new_x] != '1')
+		&& ((*graph)->pars->map[(int)new_y][(int)new_x] == '0'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'N'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'E'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'S'
+			|| (*graph)->pars->map[(int)new_y][(int)new_x] == 'W'))
 	{
 		(*graph)->pos_x = new_x;
 		(*graph)->pos_y = new_y;
