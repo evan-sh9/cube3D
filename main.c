@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 	graph->height_sword = HEIGHT * 0.30;
 	graph->width_sword = graph->height_sword * (64.0 / 64.0);
 	graph->time_now = get_time_of_day_ms();
+	graph->mini_map = ft_malloc(1, sizeof(t_mini_map));
 	mlx_hook(graph->window, 2, 1L << 0, (void *)mouv, &graph);
 	mlx_hook(graph->window, 3, 1L << 1, (void *)stop_mouv, &graph);
 	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);

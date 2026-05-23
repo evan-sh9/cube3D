@@ -33,7 +33,8 @@ CFILE = main.c \
         src/game/hook.c \
         src/game/game.c \
         src/game/utils.c \
-        src/game/sword.c
+        src/game/sword.c \
+		src/game/minimap.c
 
 CFLAGS = -Wall -Wextra -Werror
 NAME = cub3D

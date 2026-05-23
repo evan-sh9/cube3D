@@ -20,10 +20,12 @@ void	put_sword(t_graphics **graph)
 		relative_y = y - start_y;
 		tex_y = (int)((double)relative_y * (64.0 / (double)(*graph)->height_sword));
 		
-		x = ((WIDTH / 2) - ((*graph)->width_sword / 2)) + 150;
+		x = ((WIDTH / 2) - ((*graph)->width_sword / 2)) + (int)(WIDTH * 0.15);
 		start_x = x;
 		while (x < start_x + (*graph)->width_sword)
 		{
+			if (x >= WIDTH)
+                break ;
 			relative_x = x - start_x;
 			tex_x = (int)((double)relative_x * (64.0 / (double)(*graph)->width_sword));
 
