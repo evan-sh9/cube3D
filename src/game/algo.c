@@ -8,16 +8,16 @@ void	algo(t_graphics **graph)
 	while (x < WIDTH)
 	{
 		(*graph)->camera_x = 2 * x / (double)WIDTH - 1;
-		(*graph)->ray_x = (*graph)->dir_x
-			+ (*graph)->plane_x * (*graph)->camera_x;
-		(*graph)->ray_y = (*graph)->dir_y
-			+ (*graph)->plane_y * (*graph)->camera_x;
+		(*graph)->ray_x = (*graph)->dir_x + (*graph)->plane_x
+			* (*graph)->camera_x;
+		(*graph)->ray_y = (*graph)->dir_y + (*graph)->plane_y
+			* (*graph)->camera_x;
 		*graph = dda((*graph)->ray_x, (*graph)->ray_y, *graph, x);
 		x++;
 	}
 	put_sword(graph);
-	mlx_put_image_to_window((*graph)->mlx,
-		(*graph)->window, (*graph)->img, 0, 0);
+	mlx_put_image_to_window((*graph)->mlx, (*graph)->window, (*graph)->img, 0,
+		0);
 }
 
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
@@ -64,7 +64,8 @@ int	hit_wall(t_graphics *graph)
 			graph->map_y += graph->step_y;
 			side = 1;
 		}
-		if (graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '1')
+		if (graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '1'
+			|| graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '2') /* door */
 			hit = 1;
 	}
 	return (side);

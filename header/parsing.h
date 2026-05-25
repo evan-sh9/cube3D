@@ -46,6 +46,7 @@ typedef struct s_texture
     t_img               south_wall;
     t_img               east_wall;
     t_img               west_wall;
+	t_img				door;
 }                        t_tex;
 
 typedef struct config
@@ -56,6 +57,7 @@ typedef struct config
 	char			*south_texture;
 	char			*west_texture;
 	char			*east_texture;
+	char 			*door_texture;
 }					t_config;
 
 typedef struct s_pars
@@ -87,6 +89,7 @@ void				color_validity(char **s, int size);
 void				flood_fill(t_pars *pars, int x, int y);
 void				spawn_checker(t_pars *pars);
 void				texture_check(t_pars *pars);
+void				color_size_validity(t_pars *pars);
 
 // claim
 

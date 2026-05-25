@@ -2,8 +2,8 @@
 
 void	n_check(char *s)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -20,10 +20,34 @@ void	n_check(char *s)
 	if (count == 0)
 		invalid_map();
 }
+
+void	color_size_validity(t_pars *pars)
+{
+	int	i;
+
+	i = 0;
+	while (i < 3)
+	{
+		if (pars->config.celling_floor[i] > 255
+			|| pars->config.celling_floor[i] < 0)
+			invalid_map();
+		i++;
+	}
+	i = 0;
+	while (i < 3)
+	{
+		if (pars->config.floor_color[i] > 255
+			|| pars->config.floor_color[i] < 0)
+			invalid_map();
+		i++;
+	}
+
+}
+
 void	comma_check(char *s)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -39,10 +63,10 @@ void	comma_check(char *s)
 
 void	color_validity(char **s, int size)
 {
-    int i;
+	int	i;
 
 	i = 0;
-    if (size != 3)
+	if (size != 3)
 		invalid_map();
 	while (i < size)
 	{

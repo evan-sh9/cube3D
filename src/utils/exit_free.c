@@ -2,14 +2,14 @@
 
 void	invalid_map()
 {
-	//free_all();
+	ft_free_all_malloc();
 	printf("Error \nInvalid map format\n");
 	exit(EXIT_FAILURE);
 }
 
 void	invalid_file()
 {
-	//free_all();
+	ft_free_all_malloc();
 	printf("Error \nInvalid file\n");
 	exit(EXIT_FAILURE);
 }

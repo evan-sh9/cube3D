@@ -12,7 +12,7 @@ int	element_check(t_pars *pars, char *s)
 			pars->spawn_count++;
 		if ((s[i] != 'N' && s[i] != 'S' && s[i] != 'W'
 			&& s[i] != 'E' && s[i] != '0' && s[i] != '1') 
-			&& s[i] != ' ')
+			&& s[i] != ' ' && s[i] != '2')
 			invalid_file();
 		i++;
 	}
@@ -41,7 +41,7 @@ void	flood_fill(t_pars *pars, int x, int y)
 		invalid_map();
 	if (pars->map_copy[x][y] != '0' && pars->map_copy[x][y] != 'N'
 		&& pars->map_copy[x][y] != 'S' && pars->map_copy[x][y] != 'E'
-		&& pars->map_copy[x][y] != 'W')
+		&& pars->map_copy[x][y] != 'W' && pars->map_copy[x][y] != '2')
 		return ;
 	pars->map_copy[x][y] = 'F';
 	flood_fill(pars, x + 1, y);

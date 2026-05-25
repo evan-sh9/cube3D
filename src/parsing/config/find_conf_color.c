@@ -56,6 +56,7 @@ void	find_color(t_pars *pars)
 		i++;
 	}
 	n_setting_color_is_find(pars);
+	color_size_validity(pars);
 }
 
 /*

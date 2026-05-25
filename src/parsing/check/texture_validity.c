@@ -1,6 +1,6 @@
 #include "../../../header/cub3D.h"
 
-int	xpm_check(char *s)
+int		xpm_check(char *s)
 {
 	int	start;
 

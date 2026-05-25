@@ -15,6 +15,13 @@
 typedef struct s_pars	t_pars;
 typedef struct config	t_config;
 
+typedef struct s_door
+{
+    double  state;
+    
+} t_door;
+
+
 // utils
 double					claim_decimal(double n);
 void					invalid_map(void);
