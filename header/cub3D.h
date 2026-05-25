@@ -22,6 +22,8 @@ typedef struct s_door
 } t_door;
 
 
+int                     rgb_to_hexa(int *tab);
+
 // utils
 double					claim_decimal(double n);
 void					invalid_map(void);

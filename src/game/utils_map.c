@@ -13,6 +13,6 @@ void	map_dimensions(t_graphics *graph)
 		y++;
 	}
 	graph->map_height = graph->pars->map_height;
-	printf("la largeur de la map est %d\n et la hauteur de la map est %d\n", graph->map_width, graph->map_height);
+	// printf("la largeur de la map est %d\n et la hauteur de la map est %d\n", graph->map_width, graph->map_height);
 	return ;
 }

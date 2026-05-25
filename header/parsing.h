@@ -53,6 +53,8 @@ typedef struct config
 {
 	int				*floor_color;
 	int				*celling_floor;
+	// char			*floor_color_hexa;
+	// char			*celling_floor_hexa;
 	char			*north_texture;
 	char			*south_texture;
 	char			*west_texture;
