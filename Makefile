@@ -8,6 +8,7 @@ CFILE = main.c \
 		src/utils/ft_substr.c \
 		src/utils/ft_strncmp.c \
 		src/utils/gnl.c \
+		src/utils/ft_itoa.c \
 		src/utils/ft_strcpy.c \
 		src/utils/ft_split.c \
 		src/utils/ft_atoi.c \
@@ -37,7 +38,8 @@ CFILE = main.c \
         src/game/utils.c \
         src/game/sword.c \
 		src/game/minimap.c \
-		src/game/display.c
+		src/game/display.c \
+		src/game/utils_map.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D

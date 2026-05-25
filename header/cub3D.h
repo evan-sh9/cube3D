@@ -38,5 +38,6 @@ int						ft_atoi(const char *nptr);
 int						ft_strlen(char *s);
 int						ft_strncmp(const char *s1, const char *s2, int n);
 int						count_element(const char *s, char c);
+char					*ft_itoa(int n);
 
 #endif

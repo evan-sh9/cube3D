@@ -16,8 +16,9 @@ void	algo(t_graphics **graph)
 		x++;
 	}
 	put_sword(graph);
-	mlx_put_image_to_window((*graph)->mlx, (*graph)->window, (*graph)->img, 0,
-		0);
+	minimap(*graph);
+	mlx_put_image_to_window((*graph)->mlx,
+		(*graph)->window, (*graph)->img, 0, 0);
 }
 
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
