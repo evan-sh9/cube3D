@@ -94,6 +94,8 @@ typedef struct s_graphics
 	int		sword_endian;
 	double	height_sword;
 	double	width_sword;
+	int		map_width;
+	int		map_height;
 	t_mini_map	*mini_map;
 } t_graphics;
 
@@ -142,6 +144,8 @@ void		*get_addr_img(void *mlx_ptr, char *filename);
 void		*get_addr_sword(t_graphics *graph);
 void		put_sword(t_graphics **graph);
 void		minimap(t_graphics *graph);
+int			ft_strlen(char *s);
+void		map_dimensions(t_graphics *graph);
 
 #endif
 

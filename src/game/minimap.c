@@ -1,55 +1,118 @@
 #include "../../header/graphics.h"
 
+void	draw_minimap(int x_de_chaque_carre, int	y_de_chaque_carre, t_graphics *graph, int taille_de_chaque_case, int check_x, int check_y);
+
 void	minimap(t_graphics *graph)
 {
-	graph->mini_map->nb_square_x = -2; // l'offset_x
-	graph->mini_map->nb_square_y = -2; // l'offset_y, ils vont de -2 a 2 donc on affiche 5 cases autour du joueur 
-	graph->mini_map->ray_minimap = 2; // le rayon de la map 
-	graph->mini_map->totalnb_squares = graph->mini_map->ray_minimap * 2 + 1;
-	graph->mini_map->size_of_block = (int)(HEIGHT * 0.20) / graph->mini_map->totalnb_squares; // la taille de chaque block de la map
-	int map_start_x = 20;
-	int	map_start_y = 20;
-	
-	while (graph->mini_map->nb_square_y <= 2)
+	int	largeur_de_minimap = (int)(WIDTH * 0.20);
+	int	taille_de_chaque_case = largeur_de_minimap / 5;
+	int	x_depart = (int)(WIDTH * 0.02);
+	int	y_depart = (int)(HEIGHT * 0.02);
+
+	int	offset_x = -2;
+	int	offset_y = -2;
+
+	int	check_x = (int)(graph)->pos_x + offset_x; // les cases de la map a checke
+	int	check_y = (int)(graph)->pos_y + offset_y;
+
+	int	grid_x = offset_x + 2; // les index dans la minimap
+	int	grid_y = offset_y + 2;
+
+	int	x_de_chaque_carre = x_depart + (grid_x * taille_de_chaque_case);
+	int	y_de_chaque_carre = y_depart + (grid_y * taille_de_chaque_case);
+
+	while (offset_y <= 2)
 	{
-		while (graph->mini_map->nb_square_x <= 2)
+		offset_x = -2;
+		while (offset_x <= 2)
 		{
-			int check_x = (int)(graph)->pos_x + (graph)->mini_map->nb_square_x;
-			int check_y = (int)(graph)->pos_y + (graph)->mini_map->nb_square_y;
+			check_x = (int)(graph)->pos_x + offset_x;
+			check_y = (int)(graph)->pos_y + offset_y;
 
-			int grid_x = graph->mini_map->nb_square_x + 2;
-			int	grid_y = graph->mini_map->nb_square_y + 2;
-			int	x = map_start_x + (grid_x * graph->mini_map->size_of_block);
-			int	y = map_start_y + (grid_y * graph->mini_map->size_of_block);
+			grid_x = offset_x + 2;
+			grid_y = offset_y + 2;
 
-			unsigned int color = 0x000000;
+			x_de_chaque_carre = x_depart + (grid_x * taille_de_chaque_case);
+			y_de_chaque_carre = y_depart + (grid_y * taille_de_chaque_case);
 
-			if (check_y >= 0 && check_x >= 0)
-			{
-				if (graph->pars->map[check_y][check_x] == '0')
-					color = 0x00FF00;
-			}
-
-			int draw_y = y;
-			while (draw_y < y + graph->mini_map->size_of_block)
-			{
-				int draw_x = x;
-				while (draw_x < x + graph->mini_map->size_of_block)
-				{
-					my_pixel_put(graph, draw_x, draw_y, color);
-					draw_x++;
-				}
-				draw_y++;
-			}
-			graph->mini_map->nb_square_x++;
+			draw_minimap(x_de_chaque_carre, y_de_chaque_carre, graph, taille_de_chaque_case, check_x, check_y);
+			offset_x++;
 		}
-		graph->mini_map->nb_square_y++;	
+		offset_y++;
+	}
+	int center_x = x_depart + (2 * taille_de_chaque_case) + (taille_de_chaque_case / 2) - 3;
+    int center_y = y_depart + (2 * taille_de_chaque_case) + (taille_de_chaque_case / 2) - 3;
+    int p_y = center_y;
+    while (p_y < center_y + 9)
+    {
+        int p_x = center_x;
+        while (p_x < center_x + 9)
+        {
+            my_pixel_put(graph, p_x, p_y, 0xFF0000);
+            p_x++;
+        }
+        p_y++;
+    }
+}
+
+static void	draw_outside_map(t_graphics *graph, int x, int y, int size)
+{
+	int old_x = x;
+	int old_y = y;
+	while (y < old_y + size)
+	{
+		x = old_x;
+		while (x < old_x + size)
+		{
+			my_pixel_put(graph, x, y, 0x000000);
+			x++;
+		}
+		y++;
 	}
 }
-// 
 
-// je dois calculer l'endroit ou je veux display la map avec x de debut et x de fin, y de debut et y de fin
-// je pourrais la coller en heau de la fenetre pour que ca soit plus simple ou en bas de la fentre 
-// je dois calculer le ratio de l'affichage, je pourrais reprendre le mm que celui de l'epee 
-// ensuite je dois trouver le moyen d'afficher la map en entier, donc soit je chosit de faire toute la map et en fonction d'ou je suis j'affiche le joueur en rouge 
-// ou bien je l'affiche dynamiquement et la ca va etre plus complique je pense 
+static void	draw_floor(t_graphics *graph, int x, int y, int size)
+{
+	int old_x = x;
+	int old_y = y;
+	while (y < old_y + size)
+	{
+		x = old_x;
+		while (x < old_x + size)
+		{
+			my_pixel_put(graph, x, y, 0xD3D3D3);
+			x++;
+		}
+		y++;
+	}
+}
+
+static void	draw_walls_minimap(t_graphics *graph, int x, int y, int size)
+{
+	int old_x = x;
+	int old_y = y;
+	while (y < old_y + size)
+	{
+		x = old_x;
+		while (x < old_x + size)
+		{
+			my_pixel_put(graph, x, y, 0x000000);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	draw_minimap(int x_de_chaque_carre, int	y_de_chaque_carre, t_graphics *graph, int taille_de_chaque_case, int check_x, int check_y)
+{
+	if (check_x < 0 || check_y < 0 || check_x > ft_strlen(graph->pars->map[check_y]))
+		draw_outside_map(graph, x_de_chaque_carre, y_de_chaque_carre, taille_de_chaque_case); // dessiner en noir en dehors de la map
+	else if (graph->pars->map[check_y][check_x] && (graph->pars->map[check_y][check_x] == '0' || graph->pars->map[check_y][check_x] == 'N' ))
+		draw_floor(graph, x_de_chaque_carre, y_de_chaque_carre, taille_de_chaque_case);
+	else
+		draw_walls_minimap(graph, x_de_chaque_carre, y_de_chaque_carre, taille_de_chaque_case);
+}
+
+// j'ai la hauteur et la largeur de la map
+// l'offset est de -2 pour la hauteur et la largeur
+// j'ai besoin des coordonnes de debut et de fin 

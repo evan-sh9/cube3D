@@ -37,7 +37,8 @@ CFILE = main.c \
         src/game/game.c \
         src/game/utils.c \
         src/game/sword.c \
-		src/game/minimap.c
+		src/game/minimap.c \
+		src/game/utils_map.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D
@@ -68,7 +69,7 @@ $(NAME): $(OBJS)
 	cc $(OBJS) $(CFLAGS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
 
 %.o: %.c
-	cc -c $(INCLUDES) $< -o $@
+	cc -c $(CFLAGS) $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"

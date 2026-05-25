@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 	graph->time_now = get_time_of_day_ms();
 	load_texture(graph);
 	graph->mini_map = ft_malloc(1, sizeof(t_mini_map));
+	map_dimensions(graph);
 	mlx_hook(graph->window, 2, 1L << 0, (void *)mouv, &graph);
 	mlx_hook(graph->window, 3, 1L << 1, (void *)stop_mouv, &graph);
 	mlx_hook(graph->window, 17, 0, (void *)ft_exit, graph);
