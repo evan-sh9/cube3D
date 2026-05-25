@@ -68,7 +68,7 @@ $(NAME): $(OBJS)
 	cc $(OBJS) $(CFLAGS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
 
 %.o: %.c
-	cc -c $(INCLUDES) $< -o $@
+	cc -c $(CFLAGS) $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"

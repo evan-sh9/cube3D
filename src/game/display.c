@@ -1,6 +1,6 @@
 #include "../../header/cub3D.h"
 
-void	display_floor(t_graphics *graph, int x, int y, int side)
+void	display_floor(t_graphics *graph, int x, int y)
 {
 	while (y < HEIGHT)
 	{
@@ -9,7 +9,7 @@ void	display_floor(t_graphics *graph, int x, int y, int side)
 	}
 }
 
-int	px_color(t_graphics *graph, t_img *curr_tex, int x, int y)
+void	px_color(t_graphics *graph, t_img *curr_tex, int x, int y)
 {
 	int	color;
 
@@ -21,7 +21,6 @@ int	px_color(t_graphics *graph, t_img *curr_tex, int x, int y)
 
 void	display_wall(t_graphics *graph, int x, int y, int side)
 {
-	int		color;
 	t_img	*curr_tex;
 
 	while (y <= graph->lower_px)
@@ -42,10 +41,10 @@ void	display_wall(t_graphics *graph, int x, int y, int side)
 			else
 				curr_tex = &graph->pars->tex.west_wall;
 		}
-		color = px_color(graph, curr_tex, x, y);
+		px_color(graph, curr_tex, x, y);
 		y++;
 	}
-	display_floor(graph, x, y, side);
+	display_floor(graph, x, y);
 }
 
 void	display(t_graphics *graph, int x, int side)
