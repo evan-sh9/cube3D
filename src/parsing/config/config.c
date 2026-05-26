@@ -54,7 +54,6 @@ void	find_texture(t_pars *pars)
 
 	i = 0;
 	status = 0;
-	pars->config.door_texture = "textures/spruce_trapdoor.xpm"; // door
 	while (pars->file_content[i])
 	{
 		status = line_checker(pars, pars->file_content[i]);
@@ -85,23 +84,4 @@ void	config_load(t_pars *pars)
 	find_texture(pars);
 	find_color(pars);
 	texture_check(pars);
-	//printf("celling color : \n");
-//	print_int_tab(pars->config.celling_floor);
-	//printf("floor color : \n");
-//	print_int_tab(pars->config.floor_color);
-	// printf("north path : %s \n", pars->config.north_texture);
-	// printf("south path : %s \n", pars->config.south_texture);
-	// printf("west path : %s \n", pars->config.west_texture);
-	// printf("east path : %s \n", pars->config.east_texture);
 }
-
-/*
-	printf("north path : %s \n", pars->config.north_texture);
-	printf("south path : %s \n", pars->config.south_texture);
-	printf("west path : %s \n", pars->config.west_texture);
-	printf("east path : %s \n", pars->config.east_texture);
-	printf("floor color : \n");
-	print_int_tab(pars->config.floor_color);
-	printf("celling color : \n");
-	print_int_tab(pars->config.celling_floor);
-*/

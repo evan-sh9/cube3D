@@ -1,6 +1,6 @@
 #include "../../../header/cub3D.h"
 
-void n_setting_check(t_pars *pars)
+void	n_setting_check(t_pars *pars)
 {
 	if (pars->find_t_var.NO > 1)
 		invalid_map();
@@ -12,7 +12,7 @@ void n_setting_check(t_pars *pars)
 		invalid_map();
 }
 
-void n_setting_is_find(t_pars *pars)
+void	n_setting_is_find(t_pars *pars)
 {
 	if (pars->find_t_var.NO < 1)
 		invalid_map();

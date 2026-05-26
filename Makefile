@@ -25,7 +25,6 @@ CFILE = main.c \
 		src/parsing/player_pos.c \
 		src/parsing/config/config.c \
 		src/parsing/config/find_conf_color.c \
-		src/parsing/debug.c \
 		src/parsing/config/config_utils.c \
 		src/garbage_collector/garbage_collector.c \
 		src/garbage_collector/ft_lstnew.c \
@@ -41,7 +40,8 @@ CFILE = main.c \
 		src/game/display.c \
 		src/game/utils_map.c \
 		src/game/minimap_utils.c \
-		src/game/init.c
+		src/game/init.c \
+		src/game/convert_color.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D
@@ -69,10 +69,10 @@ all: $(MINILIBX)
 
 $(NAME): $(OBJS)
 	@printf "\n$(GREEN)[Compilation] Compilation principale ...$(RESET)\n\n"
-	cc $(OBJS) $(CFLAGS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
+	cc $(OBJS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
 
 %.o: %.c
-	cc -c $(CFLAGS) $(INCLUDES) $< -o $@
+	cc -c $(FLAGS) $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"

@@ -1,6 +1,6 @@
 #include "../../../header/cub3D.h"
 
-int		xpm_check(char *s)
+int	xpm_check(char *s)
 {
 	int	start;
 
@@ -36,7 +36,7 @@ void	path_join(t_pars *pars)
 
 void	path_check(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
@@ -56,8 +56,3 @@ void	texture_check(t_pars *pars)
 	xpm_check(pars->config.east_texture);
 	path_check(pars->config.east_texture);
 }
-
-// split le chemin
-// conter si correcte en taille
-// join
-// tester la validite

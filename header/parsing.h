@@ -46,7 +46,6 @@ typedef struct s_texture
     t_img               south_wall;
     t_img               east_wall;
     t_img               west_wall;
-	t_img				door;
 }                        t_tex;
 
 typedef struct config
@@ -57,7 +56,6 @@ typedef struct config
 	char			*south_texture;
 	char			*west_texture;
 	char			*east_texture;
-	char 			*door_texture;
 }					t_config;
 
 typedef struct s_pars
@@ -103,12 +101,6 @@ int					find_pl_pos(t_pars *pars);
 // other
 
 void				find_color(t_pars *pars);
-
-// debug
-
-void				print_double_tab(char **s);
-void				print_int_tab(int *s);
-
 
 int					search_color(t_pars *pars, char *line);
 void 				n_setting_check(t_pars *pars);

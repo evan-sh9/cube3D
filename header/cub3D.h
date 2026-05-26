@@ -15,12 +15,7 @@
 typedef struct s_pars	t_pars;
 typedef struct config	t_config;
 
-typedef struct s_door
-{
-    double  state;
-    
-} t_door;
-
+int                     rgb_to_hexa(int *tab);
 
 // utils
 double					claim_decimal(double n);

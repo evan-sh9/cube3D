@@ -1,10 +1,28 @@
 #include "../../header/cub3D.h"
 
+int	display_sky(t_graphics *graph, int x)
+{
+	int	y;
+	int	color;
+
+	y = 0;
+	color = rgb_to_hexa(graph->pars->config.celling_floor);
+	while (y < graph->higher_px)
+	{
+		my_pixel_put(graph, x, y, color);
+		y++;
+	}
+	return (y);
+}
+
 void	display_floor(t_graphics *graph, int x, int y)
 {
+	int	color;
+
+	color = rgb_to_hexa(graph->pars->config.floor_color);
 	while (y < HEIGHT)
 	{
-		my_pixel_put(graph, x, y, 0x666666);
+		my_pixel_put(graph, x, y, color);
 		y++;
 	}
 }
@@ -51,12 +69,7 @@ void	display(t_graphics *graph, int x, int side)
 {
 	int	y;
 
-	y = 0;
-	while (y < graph->higher_px)
-	{
-		my_pixel_put(graph, x, y, 0x333333);
-		y++;
-	}
+	y = display_sky(graph, x);
 	if (side == 1)
 		graph->tex_map.wall_x = graph->pos_x + graph->perpWallDist
 			* graph->ray_x;

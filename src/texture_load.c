@@ -17,13 +17,6 @@ void	load_next_texture(t_graphics *graph)
 			&graph->pars->tex.west_wall.bits_pp,
 			&graph->pars->tex.west_wall.size_line,
 			&graph->pars->tex.west_wall.endian);
-	/* door */
-	graph->pars->tex.door.img = mlx_xpm_file_to_image(graph->mlx,
-			graph->pars->config.door_texture, &w, &h);
-	graph->pars->tex.door.img_addr = mlx_get_data_addr(graph->pars->tex.door.img,
-			&graph->pars->tex.door.bits_pp,
-			&graph->pars->tex.door.size_line,
-			&graph->pars->tex.door.endian);
 }
 
 void	load_texture(t_graphics *graph)
