@@ -42,7 +42,6 @@ void	claim(t_pars *pars, int fd)
 	{
 		line = get_next_line(fd);
 		pars->file_content[i] = claim_line(line);
-        // printf("file content : %s \n", pars->file_content[i]);
 		i++;
 	}
 	pars->file_content[i] = NULL;
@@ -50,13 +49,13 @@ void	claim(t_pars *pars, int fd)
 }
 
 void	claim_content(t_pars *pars)
-{	
-	int		fd;
+{
+	int	fd;
 
 	pars->file_height = file_height(pars->map_file);
 	if (pars->file_height == -1)
 		exit(EXIT_FAILURE);
-	pars->file_content = ft_malloc((pars->file_height + 1) , sizeof(char *));
+	pars->file_content = ft_malloc((pars->file_height + 1), sizeof(char *));
 	fd = open(pars->map_file, O_RDONLY);
 	if (fd == -1)
 	{
@@ -67,17 +66,14 @@ void	claim_content(t_pars *pars)
 	close(fd);
 }
 
-void map_load(t_pars *pars)
+void	map_load(t_pars *pars)
 {
 	file_check(pars);
-    claim_content(pars);
+	claim_content(pars);
 	config_load(pars);
 	claim_map(pars);
-    claim_map_copy(pars);
+	claim_map_copy(pars);
 	spawn_checker(pars);
 	find_pl_pos(pars);
 	flood_fill(pars, pars->pl_pos[0], pars->pl_pos[1]);
 }
-
-//	printf("start pos | x : %i, y : %i\n", pars->pl_pos[0], pars->pl_pos[1]);
-//	claim all -> config -> map -> map copy

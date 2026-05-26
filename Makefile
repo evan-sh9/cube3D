@@ -25,7 +25,6 @@ CFILE = main.c \
 		src/parsing/player_pos.c \
 		src/parsing/config/config.c \
 		src/parsing/config/find_conf_color.c \
-		src/parsing/debug.c \
 		src/parsing/config/config_utils.c \
 		src/garbage_collector/garbage_collector.c \
 		src/garbage_collector/ft_lstnew.c \
@@ -71,7 +70,7 @@ $(NAME): $(OBJS)
 	cc $(OBJS) -o $(NAME) -Lminilibx-linux -lmlx_Linux -lXext -lX11 -lm -g3
 
 %.o: %.c
-	cc -c $(INCLUDES) $< -o $@
+	cc -c $(FLAGS) $(INCLUDES) $< -o $@
 
 $(MINILIBX):
 	@printf "\n$(GREEN)[Compilation] Compilation minilibx ...$(RESET)\n\n"

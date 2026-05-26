@@ -65,8 +65,7 @@ int	hit_wall(t_graphics *graph)
 			graph->map_y += graph->step_y;
 			side = 1;
 		}
-		if (graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '1'
-			|| graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '2') /* door */
+		if (graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '1')
 			hit = 1;
 	}
 	return (side);

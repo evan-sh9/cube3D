@@ -3,13 +3,13 @@
 int	display_sky(t_graphics *graph, int x)
 {
 	int	y;
-	int color;
+	int	color;
 
 	y = 0;
 	color = rgb_to_hexa(graph->pars->config.celling_floor);
 	while (y < graph->higher_px)
 	{
-		my_pixel_put(graph, x, y, 0x333333);
+		my_pixel_put(graph, x, y, color);
 		y++;
 	}
 	return (y);
@@ -17,9 +17,12 @@ int	display_sky(t_graphics *graph, int x)
 
 void	display_floor(t_graphics *graph, int x, int y)
 {
+	int	color;
+
+	color = rgb_to_hexa(graph->pars->config.floor_color);
 	while (y < HEIGHT)
 	{
-		my_pixel_put(graph, x, y, 0x666666);
+		my_pixel_put(graph, x, y, color);
 		y++;
 	}
 }

@@ -41,7 +41,6 @@ void	color_size_validity(t_pars *pars)
 			invalid_map();
 		i++;
 	}
-
 }
 
 void	comma_check(char *s)

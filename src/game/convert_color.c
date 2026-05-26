@@ -1,49 +1,25 @@
 #include "../../header/cub3D.h"
 
-int	count_n(int nb)
+int	rgb_to_hexa(int *tab)
 {
-	int	c;
+	int	convert;
 
-	c = 0;
-	while (nb >= 16)
-	{
-		nb = nb / 16;
-		c++;
-	}
-	return (c + 1);
+	convert = (tab[2] * 1) + (tab[1] * 16 * 16) + (tab[0] * 16 * 16 * 16 * 16);
+	return (convert);
 }
 
-int dec_to_hexa(int n)
-{
-    int             tmp;
-    int             len;
-	char			*base;
-    char            *convert;
+/*
+	un composant a besoin de 8 bits :
+	1 chiffre hexa = 4 bits
+	4 bits * 2 = 8 bits
+	donc decale de puissant de 2 :
 
-	base = "0123456789ABCD";
-    len = count_n(n);
-	convert = ft_malloc(len ,sizeof(char));
-    if (n == 0)
-        convert[0] = '0';
-    convert[len] = '\0';
-    while (n > 0)
-    {
-        len--;
-        convert[len] = base[n % 16];
-        n /= 16;
-    }
-    return (/* atoi base */);
-}
-
-int rgb_to_hexa(int *tab)
-{
-    int convert;
-    tab[0] = dec_to_hexa(tab[0]);
-    tab[1] = dec_to_hexa(tab[1]);
-    tab[2] = dec_to_hexa(tab[2]);
-
-    printf("tab 0 : %i\n", tab[0]);
-    printf("tab 1 : %i\n", tab[1]);
-    printf("tab 2 : %i\n", tab[2]);
-    return (convert);
-}
+	(n * 16^4) + (n * 16^2) + (n * 16^0)
+	(n * 65536) + (n * 256) + (n * 1)
+	multiplier par des puissance au meme titre
+	qu'une base 10 :
+	4 * 10^0
+	4 * 10^1
+	4 * 10^2
+	= 444
+*/
