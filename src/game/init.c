@@ -25,3 +25,39 @@ t_graphics	*init_data(t_pars *parse)
 	graph->width_sword = graph->height_sword * (64.0 / 64.0);
 	return (graph);
 }
+
+void	dir_spawn(t_graphics *graph)
+{
+	if (graph->pars->map[(int)graph->pars->pl_pos[0]]
+		[(int)graph->pars->pl_pos[1]] == 'N')
+	{
+		graph->dir_x = 0.0;
+		graph->dir_y = -1.0;
+		graph->plane_x = 0.66;
+		graph->plane_y = 0;
+	}
+	else if (graph->pars->map[(int)graph->pars->pl_pos[0]]
+		[(int)graph->pars->pl_pos[1]] == 'E')
+	{
+		graph->dir_x = 1.0;
+		graph->dir_y = 0.0;
+		graph->plane_x = 0;
+		graph->plane_y = 0.66;
+	}
+	else if (graph->pars->map[(int)graph->pars->pl_pos[0]]
+		[(int)graph->pars->pl_pos[1]] == 'S')
+	{
+		graph->dir_x = 0.0;
+		graph->dir_y = 1.0;
+		graph->plane_x = 0.66;
+		graph->plane_y = 0;
+	}
+	else if (graph->pars->map[(int)graph->pars->pl_pos[0]]
+		[(int)graph->pars->pl_pos[1]] == 'W')
+	{
+		graph->dir_x = -1.0;
+		graph->dir_y = 0.0;
+		graph->plane_x = 0;
+		graph->plane_y = 0.66;
+	}
+}

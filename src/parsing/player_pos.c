@@ -11,7 +11,8 @@ int	find_pl_pos(t_pars *pars)
 		j = 0;
 		while (pars->map[i][j])
 		{
-			if (pars->map[i][j] == 'N')
+			if (pars->map[i][j] == 'N' || pars->map[i][j] == 'S'
+                || pars->map[i][j] == 'E' || pars->map[i][j] == 'W')
 			{
 				pars->pl_pos[0] = i;
 				pars->pl_pos[1] = j;

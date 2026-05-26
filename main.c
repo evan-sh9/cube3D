@@ -13,12 +13,10 @@ int	main(int ac, char **av)
 	map_load(&pars);
 	graph = ft_malloc(1, sizeof(t_graphics));
 	graph->pars = &pars;
-	graph->pos_x = pars.pl_pos[0];
-	graph->pos_y = pars.pl_pos[1];
-	graph->dir_x = -1.0;
-	graph->dir_y = 0.0;
-	graph->plane_x = 0.0;
-	graph->plane_y = 0.66;
+	graph->pos_x = pars.pl_pos[1];
+	graph->pos_y = pars.pl_pos[0];
+	//printf("y: %f, x: %f\n", pars.pl_pos[0], pars.pl_pos[1]);
+	dir_spawn(graph);
 	graph->camera_x = 0;
 	graph->step_x = 0;
 	graph->step_y = 0;

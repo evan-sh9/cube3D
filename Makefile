@@ -39,7 +39,9 @@ CFILE = main.c \
         src/game/sword.c \
 		src/game/minimap.c \
 		src/game/display.c \
-		src/game/utils_map.c
+		src/game/utils_map.c \
+		src/game/minimap_utils.c \
+		src/game/init.c
 
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = cub3D

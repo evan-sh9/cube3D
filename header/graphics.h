@@ -5,8 +5,8 @@
 # define HEIGHT 820
 # define TEX_WIDTH 16
 # define TEX_HEIGHT 16
-# define FLECHE_G 65363
-# define FLECHE_D 65361
+# define FLECHE_G 65361
+# define FLECHE_D 65363
 # define W_AVANT 119
 # define A_GAUCHE 97
 # define S_ARRIERE 115
@@ -101,23 +101,23 @@ typedef struct s_graphics
 
 typedef struct s_mini_map
 {
-	int		start_x;
-	int		start_y;
+	int	width_minimap; // equivalent de largeur minimap
+	int	size_square; // equivaelent de taille de chaque case
+	int	x_start; // x_depart
+	int	y_start; // y_depart
 	
-	double	pos_plyr_x; // le joueur sera tout le temps au millieu de la map
-	double	pos_plyr_y;
-	
-	int		mini_map_size;
-	int		size_of_block;
+	int	offset_x;
+	int	offset_y;
 
-	int totalnb_squares;
-	int	nb_square_x;
-	int	nb_square_y;
+	int	realmap_idx_x; // check_x
+	int	realmap_idx_y; // check_y
+	int grid_x;
+	int	grid_y;
 
-	int	total_size;
-
-	int	ray_minimap; // le rayon de ce qu'on voit sur l'ecran
+	int	x_minimap; // x_de_chaque_carre
+	int	y_minimap; // y_chaque_carre
 } t_mini_map;
+
 
 void		algo(t_graphics **graph);
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x);
@@ -147,5 +147,12 @@ void		display(t_graphics *graph, int x, int side);
 void		minimap(t_graphics *graph);
 int			ft_strlen(char *s);
 void		map_dimensions(t_graphics *graph);
+void		put_pos(t_graphics *graph);
+void		draw_outside_map(t_graphics *graph, int x, int y, int size);
+void		draw_floor(t_graphics *graph, int x, int y, int size);
+void		draw_walls_minimap(t_graphics *graph, int x, int y, int size);
+void		draw_minimap(t_graphics *graph);
+void		minimap_two(t_graphics *graph);
+void		dir_spawn(t_graphics *graph);
 
 #endif
