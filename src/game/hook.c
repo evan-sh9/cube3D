@@ -17,6 +17,11 @@
 
 void	ft_exit(t_graphics *graph)
 {
+	mlx_destroy_image(graph->mlx, graph->pars->tex.north_wall.img);
+	mlx_destroy_image(graph->mlx, graph->pars->tex.south_wall.img);
+	mlx_destroy_image(graph->mlx, graph->pars->tex.east_wall.img);
+	mlx_destroy_image(graph->mlx, graph->pars->tex.west_wall.img);
+	mlx_destroy_image(graph->mlx, graph->sword_img);
 	mlx_destroy_image(graph->mlx, graph->img);
 	mlx_destroy_window(graph->mlx, graph->window);
 	mlx_destroy_display(graph->mlx);
