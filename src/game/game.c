@@ -24,7 +24,6 @@ void	to_left(t_graphics **graph)
 {
 	double	old_x;
 	double	old_plane;
-
 	old_plane = (*graph)->plane_x;
 	old_x = (*graph)->dir_x;
 	(*graph)->dir_x = old_x * cos(-ROT_SPEED * (*graph)->delta_time)
@@ -41,6 +40,7 @@ void	to_right(t_graphics **graph)
 {
 	double	old_x;
 	double	old_plane;
+
 
 	old_plane = (*graph)->plane_x;
 	old_x = (*graph)->dir_x;

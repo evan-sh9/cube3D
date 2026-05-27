@@ -83,23 +83,22 @@ void	draw_walls_minimap(t_graphics *graph, int x, int y, int size)
 
 void	draw_minimap(t_graphics *graph)
 {
-	if (graph->mini_map->realmap_idx_x < 0 || graph->mini_map->realmap_idx_y
-		< 0 || graph->mini_map->realmap_idx_x
-		> ft_strlen(graph->pars->map[graph->mini_map->realmap_idx_y]))
+	int rx;
+	int ry;
+	char c;
+
+	rx = graph->mini_map->realmap_idx_x;
+	ry = graph->mini_map->realmap_idx_y;
+	if (ry < 0 || rx < 0
+		|| ry >= graph->pars->map_height
+		|| rx >= (int)ft_strlen(graph->pars->map[ry]))
+	{
 		draw_outside_map(graph, graph->mini_map->x_minimap,
 			graph->mini_map->y_minimap, graph->mini_map->size_square);
-	else if (graph->pars->map[graph->mini_map->realmap_idx_y]
-		[graph->mini_map->realmap_idx_x]
-		&& (graph->pars->map[graph->mini_map->realmap_idx_y]
-			[graph->mini_map->realmap_idx_x]
-			== '0' || graph->pars->map[graph->mini_map->realmap_idx_y]
-			[graph->mini_map->realmap_idx_x] == 'N'
-			|| graph->pars->map[graph->mini_map->realmap_idx_y]
-			[graph->mini_map->realmap_idx_x] == 'E'
-			|| graph->pars->map[graph->mini_map->realmap_idx_y]
-			[graph->mini_map->realmap_idx_x] == 'S'
-			|| graph->pars->map[graph->mini_map->realmap_idx_y]
-			[graph->mini_map->realmap_idx_x] == 'W'))
+		return ;
+	}
+	c = graph->pars->map[ry][rx];
+	if (c == '0' || c == 'N' || c == 'E' || c == 'S' || c == 'W')
 		draw_floor(graph, graph->mini_map->x_minimap,
 			graph->mini_map->y_minimap, graph->mini_map->size_square);
 	else

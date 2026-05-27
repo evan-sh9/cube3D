@@ -15,10 +15,10 @@ void	algo(t_graphics **graph)
 		*graph = dda((*graph)->ray_x, (*graph)->ray_y, *graph, x);
 		x++;
 	}
-	put_sword(graph);
-	minimap(*graph);
-	mlx_put_image_to_window((*graph)->mlx,
-		(*graph)->window, (*graph)->img, 0, 0);
+		put_sword(graph);
+		minimap(*graph);
+		mlx_put_image_to_window((*graph)->mlx,
+			(*graph)->window, (*graph)->img, 0, 0);
 }
 
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
@@ -34,6 +34,10 @@ t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
 		graph->perpWallDist = (graph->side_x - graph->delta_x);
 	else
 		graph->perpWallDist = (graph->side_y - graph->delta_y);
+
+	/* prevent zero or extremely small distances to avoid huge wall heights */
+	if (graph->perpWallDist <= 1e-6)
+		graph->perpWallDist = 1e-6;
 	graph->wall_height = (int)(HEIGHT / graph->perpWallDist);
 	graph->higher_px = -graph->wall_height / 2 + HEIGHT / 2;
 	if (graph->higher_px < 0)
@@ -49,8 +53,11 @@ int	hit_wall(t_graphics *graph)
 {
 	int	hit;
 	int	side;
+	int	map_x;
+	int	map_y;
 
 	hit = 0;
+	/* hit_wall may be called many times per frame; avoid logging here */
 	while (hit == 0)
 	{
 		if (graph->side_x < graph->side_y)
@@ -65,9 +72,15 @@ int	hit_wall(t_graphics *graph)
 			graph->map_y += graph->step_y;
 			side = 1;
 		}
-		if (graph->pars->map[(int)graph->map_y][(int)graph->map_x] == '1')
+		map_x = (int)graph->map_x;
+		map_y = (int)graph->map_y;
+		if (map_y < 0 || map_y >= graph->pars->map_height
+			|| map_x < 0 || map_x >= ft_strlen(graph->pars->map[map_y])
+			|| graph->pars->map[map_y][map_x] == ' '
+			|| graph->pars->map[map_y][map_x] == '1')
 			hit = 1;
 	}
+	/* end hit_wall */
 	return (side);
 }
 

@@ -15,7 +15,7 @@ int	main(int ac, char **av)
 	graph->pars = &pars;
 	graph->pos_x = pars.pl_pos[1];
 	graph->pos_y = pars.pl_pos[0];
-	//printf("y: %f, x: %f\n", pars.pl_pos[0], pars.pl_pos[1]);
+	// printf("y: %f, x: %f\n", pars.pl_pos[0], pars.pl_pos[1]);
 	dir_spawn(graph);
 	graph->camera_x = 0;
 	graph->step_x = 0;
