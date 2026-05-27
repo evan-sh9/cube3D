@@ -3,11 +3,13 @@
 int	extention_check(char *s)
 {
 	int	start;
+	int size;
 
-	start = ft_strlen(s) - 4;
+	size = ft_strlen(s);
+	start = size - 4;
+	if (size <= 4)
+		invalid_file();
 	if (ft_strncmp(s + start, ".cub", 4) != 0)
-		return (1);
-	if (s[start - 1] == '/')
 		return (1);
 	return (0);
 }
