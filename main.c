@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:28:40 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:28:41 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header/cub3D.h"
 
 int	main(int ac, char **av)
 {
+	t_pars		pars;
+	t_graphics	*graph;
+
 	(void)ac;
 	(void)av;
-	t_pars pars = {0};
-	t_graphics *graph;
-
 	if (ac != 2)
 		return (1);
 	pars.map_file = av[1];

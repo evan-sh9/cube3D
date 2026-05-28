@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:22:44 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:22:49 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
 
@@ -30,23 +42,22 @@ typedef struct s_find_texture
 	int				c;
 }					t_find_texture;
 
-typedef	struct s_img
+typedef struct s_img
 {
-	void				*img;
-	void				*img_addr;
-	int					bits_pp;
-	int 				size_line;
-	int					endian;
-} t_img;
-
+	void			*img;
+	void			*img_addr;
+	int				bits_pp;
+	int				size_line;
+	int				endian;
+}					t_img;
 
 typedef struct s_texture
 {
-    t_img               north_wall;
-    t_img               south_wall;
-    t_img               east_wall;
-    t_img               west_wall;
-}                        t_tex;
+	t_img			north_wall;
+	t_img			south_wall;
+	t_img			east_wall;
+	t_img			west_wall;
+}					t_tex;
 
 typedef struct config
 {
@@ -61,17 +72,17 @@ typedef struct config
 typedef struct s_pars
 {
 	char			**map;
-	char 			**map_copy;
-	char 			**file_content;
-	char 			*map_file;
+	char			**map_copy;
+	char			**file_content;
+	char			*map_file;
 	double			pl_pos[2];
 	int				file_height;
 	int				conf_height;
 	int				map_height;
 	int				map_width;
 	int				spawn_count;
-    t_tex			tex;
-    t_config		config;
+	t_tex			tex;
+	t_config		config;
 	t_find_texture	find_t_var;
 }					t_pars;
 
@@ -103,7 +114,7 @@ int					find_pl_pos(t_pars *pars);
 void				find_color(t_pars *pars);
 
 int					search_color(t_pars *pars, char *line);
-void 				n_setting_check(t_pars *pars);
-void 				n_setting_is_find(t_pars *pars);
+void				n_setting_check(t_pars *pars);
+void				n_setting_is_find(t_pars *pars);
 
 #endif
