@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_conf_color.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 13:57:28 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 13:57:29 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../header/cub3D.h"
 
 void	n_setting_color_check(t_pars *pars)
 {
-	if (pars->find_t_var.F > 1)
+	if (pars->find_t_var.f > 1)
 		invalid_map();
-	if (pars->find_t_var.C > 1)
+	if (pars->find_t_var.c > 1)
 		invalid_map();
 }
 
 void	n_setting_color_is_find(t_pars *pars)
 {
-	if (pars->find_t_var.F < 1)
+	if (pars->find_t_var.f < 1)
 		invalid_map();
-	if (pars->find_t_var.C < 1)
+	if (pars->find_t_var.c < 1)
 		invalid_map();
 }
 
@@ -22,12 +34,12 @@ int	search_color(t_pars *pars, char *line)
 		return (-1);
 	if (line[0] == 'F' && line[1] == ' ')
 	{
-		pars->find_t_var.F++;
+		pars->find_t_var.f++;
 		return (F);
 	}
 	if (line[0] == 'C' && line[1] == ' ')
 	{
-		pars->find_t_var.C++;
+		pars->find_t_var.c++;
 		return (C);
 	}
 	return (-2);
@@ -40,8 +52,8 @@ void	find_color(t_pars *pars)
 
 	i = 0;
 	status = 0;
-	pars->find_t_var.F = 0;
-	pars->find_t_var.C = 0;
+	pars->find_t_var.f = 0;
+	pars->find_t_var.c = 0;
 	while (pars->file_content[i])
 	{
 		status = search_color(pars, pars->file_content[i]);
@@ -50,7 +62,7 @@ void	find_color(t_pars *pars)
 		else if (status == C)
 			claim_color(pars, C, i);
 		n_setting_color_check(pars);
-		if (pars->find_t_var.F == 1 && pars->find_t_var.C == 1)
+		if (pars->find_t_var.f == 1 && pars->find_t_var.c == 1)
 			break ;
 		i++;
 	}

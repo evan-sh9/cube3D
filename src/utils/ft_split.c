@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:01:01 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:02:48 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub3D.h"
 
 static void	strlcpy_(char *dst, const char *src, size_t size)
@@ -57,8 +69,8 @@ static int	claim_word(char **ss, const char *s, char lim)
 		if (len)
 		{
 			ss[i] = ft_malloc(len + 1, sizeof(char));
-            if (!ss[i])
-                return (1);
+			if (!ss[i])
+				return (1);
 			strlcpy_(ss[i], s - len, len + 1);
 			i++;
 		}

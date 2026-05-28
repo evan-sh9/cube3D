@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gnl.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:01:43 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:01:44 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub3D.h"
 
 char	*fill_line(char *stash)
@@ -12,7 +24,7 @@ char	*fill_line(char *stash)
 		return (NULL);
 	while (stash[start] != '\n' && stash[start])
 		start++;
-	line = ft_malloc((start + 2) ,sizeof(char));
+	line = ft_malloc((start + 2), sizeof(char));
 	while (stash[i] != '\n' && stash[i])
 	{
 		line[i] = stash[i];
@@ -80,7 +92,7 @@ char	*get_next_line(int fd)
 	byte = 0;
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
-	buffer = ft_malloc((BUFFER_SIZE + 1) ,sizeof(char));
+	buffer = ft_malloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (NULL);
 	if (!stash)

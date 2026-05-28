@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   display.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 13:59:55 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 13:59:56 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub3D.h"
 
 int	display_sky(t_graphics *graph, int x)
@@ -31,8 +43,8 @@ void	px_color(t_graphics *graph, t_img *curr_tex, int x, int y)
 {
 	int	color;
 
-	color = *(int *)(curr_tex->img_addr + (graph->tex_map.texY
-				* curr_tex->size_line) + (graph->tex_map.texX
+	color = *(int *)(curr_tex->img_addr + (graph->tex_map.texy
+				* curr_tex->size_line) + (graph->tex_map.texx
 				* (curr_tex->bits_pp / 8)));
 	my_pixel_put(graph, x, y, color);
 }
@@ -43,7 +55,7 @@ void	display_wall(t_graphics *graph, int x, int y, int side)
 
 	while (y <= graph->lower_px)
 	{
-		graph->tex_map.texY = (int)(graph->tex_map.text_pos) & (TEX_HEIGHT - 1);
+		graph->tex_map.texy = (int)(graph->tex_map.text_pos) & (TEX_HEIGHT - 1);
 		graph->tex_map.text_pos += graph->tex_map.step;
 		if (side == 1)
 		{
@@ -77,9 +89,9 @@ void	display(t_graphics *graph, int x, int side)
 		graph->tex_map.wall_x = graph->pos_y + graph->perpWallDist
 			* graph->ray_y;
 	graph->tex_map.wall_x = claim_decimal(graph->tex_map.wall_x);
-	graph->tex_map.texX = (int)(graph->tex_map.wall_x * (double)TEX_WIDTH);
+	graph->tex_map.texx = (int)(graph->tex_map.wall_x * (double)TEX_WIDTH);
 	if (graph->ray_x > 0)
-		graph->tex_map.wall_x = TEX_WIDTH - graph->tex_map.texX - 1;
+		graph->tex_map.wall_x = TEX_WIDTH - graph->tex_map.texx - 1;
 	if (graph->ray_y > 0)
 		graph->tex_map.wall_x = TEX_WIDTH - graph->tex_map.wall_x - 1;
 	graph->tex_map.step = 1.0 * TEX_HEIGHT / graph->wall_height;

@@ -31,8 +31,8 @@ typedef struct s_texture_mapping
 	double	wall_y;
 	double	text_pos;
 	double	step;
-	int		texX;
-	int		texY;
+	int		texx;
+	int		texy;
 }		t_texture_mapping;
 
 

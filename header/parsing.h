@@ -22,12 +22,12 @@ enum				color
 
 typedef struct s_find_texture
 {
-	int				NO;
-	int				SO;
-	int				WE;
-	int				EA;
-	int				F;
-	int				C;
+	int				no;
+	int				so;
+	int				we;
+	int				ea;
+	int				f;
+	int				c;
 }					t_find_texture;
 
 typedef	struct s_img

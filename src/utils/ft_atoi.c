@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:00:52 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:02:13 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub3D.h"
 
-static void exit_atoi()
+static void	exit_atoi(void)
 {
 	ft_free_all_malloc();
 	printf("Error : Invalid size\n");

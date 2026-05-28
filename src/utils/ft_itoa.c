@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 09:24:50 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/23 17:57:47 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/28 14:00:59 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	*ft_create_string(char *str, int nbchar, long nb)
 		str = malloc(sizeof(char) * (nbchar + 2));
 	}
 	else
-	{		
+	{
 		str = malloc(sizeof(char) * (nbchar + 1));
 	}
 	return (str);
@@ -66,7 +66,7 @@ static void	ft_fill2(char *str, long nb, int nbchar)
 	while (nb != 0)
 	{
 		str[0] = '-';
-		str[nbchar +1 - y] = nb % 10 + '0';
+		str[nbchar + 1 - y] = nb % 10 + '0';
 		y++;
 		nb = nb / 10;
 	}

@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   config.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 13:57:23 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 13:57:24 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../header/cub3D.h"
 
 int	line_checker_next(t_pars *pars, char *line)
 {
 	if (line[0] == 'W' && line[1] == 'E' && (line[2] == ' ' || line[2] == '\t'))
 	{
-		pars->find_t_var.WE++;
+		pars->find_t_var.we++;
 		return (WE);
 	}
 	else if (line[0] == 'E' && line[1] == 'A' && (line[2] == ' '
 			|| line[2] == '\t'))
 	{
-		pars->find_t_var.EA++;
+		pars->find_t_var.ea++;
 		return (EA);
 	}
 	n_setting_check(pars);
@@ -23,13 +35,13 @@ int	line_checker(t_pars *pars, char *line)
 		return (-1);
 	if (line[0] == 'N' && line[1] == 'O' && (line[2] == ' ' || line[2] == '\t'))
 	{
-		pars->find_t_var.NO++;
+		pars->find_t_var.no++;
 		return (NO);
 	}
 	else if (line[0] == 'S' && line[1] == 'O' && (line[2] == ' '
 			|| line[2] == '\t'))
 	{
-		pars->find_t_var.SO++;
+		pars->find_t_var.so++;
 		return (SO);
 	}
 	return (line_checker_next(pars, line));
@@ -37,8 +49,8 @@ int	line_checker(t_pars *pars, char *line)
 
 int	conf_validation(t_pars *pars, int i)
 {
-	if (pars->find_t_var.NO && pars->find_t_var.SO && pars->find_t_var.WE
-		&& pars->find_t_var.EA && pars->find_t_var.F && pars->find_t_var.C)
+	if (pars->find_t_var.no && pars->find_t_var.so && pars->find_t_var.we
+		&& pars->find_t_var.ea && pars->find_t_var.f && pars->find_t_var.c)
 	{
 		pars->conf_height = i;
 		return (1);
@@ -75,12 +87,12 @@ void	find_texture(t_pars *pars)
 
 void	config_load(t_pars *pars)
 {
-	pars->find_t_var.NO = 0;
-	pars->find_t_var.SO = 0;
-	pars->find_t_var.WE = 0;
-	pars->find_t_var.EA = 0;
-	pars->find_t_var.F = 0;
-	pars->find_t_var.C = 0;
+	pars->find_t_var.no = 0;
+	pars->find_t_var.so = 0;
+	pars->find_t_var.we = 0;
+	pars->find_t_var.ea = 0;
+	pars->find_t_var.f = 0;
+	pars->find_t_var.c = 0;
 	find_texture(pars);
 	find_color(pars);
 	texture_check(pars);
