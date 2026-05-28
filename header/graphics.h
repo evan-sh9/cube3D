@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 10:50:43 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/28 14:22:51 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/05/28 14:32:38 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,17 +129,17 @@ typedef struct s_mini_map
 
 typedef struct s_sword
 {
-	int						x;
-	int						y;
-	int						start_x;
-	int						start_y;
-	int						tex_x;
-	int						tex_y;
-	int						relative_y;
-	int						relative_x;
-	char					*ptr;
-	unsigned int			color;
-}							t_sword;
+	int				x;
+	int				y;
+	int				start_x;
+	int				start_y;
+	int				tex_x;
+	int				tex_y;
+	int				relative_y;
+	int				relative_x;
+	char			*ptr;
+	unsigned int	color;
+}	t_sword;
 
 void						algo(t_graphics **graph);
 t_graphics					*dda(double ray_x, double ray_y, t_graphics *graph,
