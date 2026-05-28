@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 10:50:43 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/28 14:22:51 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/05/28 14:29:27 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ typedef struct s_texture_mapping
 	int						texy;
 }							t_texture_mapping;
 
-/*
-
-	int texX = int(wallX * double(texWidth));
-	if(side == 0 && rayDirX > 0) texX = texWidth - texX - 1;
-	if(side == 1 && rayDirY < 0) texX = texWidth - texX - 1;
-
- */
 
 typedef struct s_graphics
 {
