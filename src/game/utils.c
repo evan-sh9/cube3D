@@ -44,8 +44,9 @@ void	*get_addr_img(void *mlx_ptr, char *filename)
 
 void	*get_addr_sword(t_graphics *graph)
 {
-	void *ptr;
+	void	*ptr;
 
-	ptr = mlx_get_data_addr(graph->sword_img, &graph->sword_pixel, &graph->sword_line_size, &graph->sword_endian);
+	ptr = mlx_get_data_addr(graph->sword_img, &graph->sword_pixel,
+			&graph->sword_line_size, &graph->sword_endian);
 	return (ptr);
 }

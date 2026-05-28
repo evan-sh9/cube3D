@@ -83,9 +83,9 @@ void	draw_walls_minimap(t_graphics *graph, int x, int y, int size)
 
 void	draw_minimap(t_graphics *graph)
 {
-	int rx;
-	int ry;
-	char c;
+	int		rx;
+	int		ry;
+	char	c;
 
 	rx = graph->mini_map->realmap_idx_x;
 	ry = graph->mini_map->realmap_idx_y;

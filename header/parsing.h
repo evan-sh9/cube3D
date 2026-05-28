@@ -6,7 +6,7 @@
 # include <stddef.h>
 # include <stdio.h>
 
-enum				texture
+enum				e_texture
 {
 	NO,
 	SO,
@@ -14,7 +14,7 @@ enum				texture
 	EA,
 };
 
-enum				color
+enum				e_color
 {
 	F,
 	C
