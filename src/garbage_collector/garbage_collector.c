@@ -6,22 +6,11 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 11:38:30 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/15 17:12:50 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/28 14:29:17 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gc.h"
-
-// int main(void)
-// {
-// 	t_token *tok = ft_malloc(1, sizeof(t_token));
-// 	if (tok)
-// 	{
-//     	tok->flag = 0;
-//     	tok->next = NULL;
-// 	}
-// 	ft_free_all_malloc();
-// }
 
 static	t_list	**return_adress(void)
 {
@@ -30,7 +19,7 @@ static	t_list	**return_adress(void)
 	return (&list);
 }
 
-void	ft_free_all_malloc()
+void	ft_free_all_malloc(void)
 {
 	t_list	**list_ptr;
 	t_list	*tmp;
@@ -94,6 +83,5 @@ void	*ft_malloc(size_t nmemb, size_t size)
 	if (!new)
 		ft_free_all_malloc();
 	ft_lstadd_back(list_ptr, new);
-	
 	return (ptr);
 }
