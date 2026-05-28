@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 10:45:56 by adjelili          #+#    #+#             */
+/*   Updated: 2026/05/28 10:46:09 by adjelili         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -15,7 +27,7 @@
 typedef struct s_pars	t_pars;
 typedef struct config	t_config;
 
-int                     rgb_to_hexa(int *tab);
+int						rgb_to_hexa(int *tab);
 
 // utils
 double					claim_decimal(double n);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   graphics.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 10:50:43 by adjelili          #+#    #+#             */
+/*   Updated: 2026/05/28 11:28:34 by adjelili         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GRAPHICS_H
 # define GRAPHICS_H
 
@@ -14,16 +26,16 @@
 # define SPEED 5.0
 # define ROT_SPEED 4.0
 
+# include "../minilibx-linux/mlx.h"
+# include <stdio.h>
+# include "parsing.h"
+# include <math.h>
+# include "../src/garbage_collector/gc.h"
+# include <stdlib.h>
+# include <sys/time.h>
 
-#include "../minilibx-linux/mlx.h"
-#include <stdio.h>
-#include "parsing.h"
-#include <math.h>
-#include "../src/garbage_collector/gc.h"
-#include <stdlib.h>
-#include <sys/time.h>
-
-typedef struct s_mini_map t_mini_map;
+typedef struct s_mini_map	t_mini_map;
+typedef struct s_sword	t_sword;
 
 typedef struct s_texture_mapping
 {
@@ -35,7 +47,6 @@ typedef struct s_texture_mapping
 	int		texY;
 }		t_texture_mapping;
 
-
 /*
 
     int texX = int(wallX * double(texWidth));
@@ -46,78 +57,89 @@ typedef struct s_texture_mapping
 
 typedef struct s_graphics
 {
-	int		rotate_droite;
-	int		rotate_gauche;
-	int		avancer;
-	int		reculer;
-	int		a_droite;
-	int		a_gauche;
-	double	pos_x; // position x du joueur
-	double	pos_y; // position y du joueur
-	double	dir_x; // direction y du joueur (vecteur de direction)
-	double	dir_y; // direction y du joueur (vecteur de direction)
-	double	plane_x; // le plan x
-	double	plane_y; // le plan y
-	double	delta_time;
-	double	old_time;
-	double	time_now;
-	double	ray_x; // le rayon qu'on calcule pour chaque camera_x (pour chaque colonne de l'ecran)
-	double	ray_y; // pareil mais en y
-	double	camera_x; 
-	double	map_x; // la case sur laquelle se trouve le joueur
-	double	map_y; // pareil mais en y
-	double	delta_x; // la distance que doit parcourir un vecteur pour traverser une case
-	double	delta_y; // pareil mais en y
-	int		step_x;
-	int		step_y;
-	double	side_x; // la distcance que doit parcourir le rayon pour atteindre la prochaine case a partir de la 
-	double	side_y; // pareil mais en y
-	double	perpWallDist; // la distcance qu'on va utiliser pour eviter le fisheye effect
-	double	wall_height; // la taille du mur apres avoir calcule la distance avec perpwall
-	double	higher_px; // les coordonnes du pixel du haut
-	double	lower_px; // les coordonnes des pixels du bas
-	void	*mlx;
-	void	*window;
-	void	*img;
-	char	*addr;
-	char	**map;
-	int		bits_per_px; // la taille de chaque pixel en octets, vu que chaque pixel est en rgba on a 4 int de 8 bits donc 32bits par pixel
-	int		line_size; // la taille d'une ligne en byte
-	int		endian;
-	t_pars	*pars;
-	t_texture_mapping tex_map;
-	double	angle;
-	void	*sword_img;
-	void	*sword_addr;
-	int		sword_pixel;
-	int		sword_line_size;
-	int		sword_endian;
-	double	height_sword;
-	double	width_sword;
-	int		map_width;
-	int		map_height;
-	t_mini_map	*mini_map;
-} t_graphics;
+	int					rotate_droite;
+	int					rotate_gauche;
+	int					avancer;
+	int					reculer;
+	int					a_droite;
+	int					a_gauche;
+	double				pos_x;
+	double				pos_y;
+	double				dir_x;
+	double				dir_y;
+	double				plane_x;
+	double				plane_y;
+	double				delta_time;
+	double				old_time;
+	double				time_now;
+	double				ray_x;
+	double				ray_y;
+	double				camera_x;
+	double				map_x;
+	double				map_y;
+	double				delta_x;
+	double				delta_y;
+	int					step_x;
+	int					step_y;
+	double				side_x;
+	double				side_y;
+	double				perpWallDist;
+	double				wall_height;
+	double				higher_px;
+	double				lower_px;
+	void				*mlx;
+	void				*window;
+	void				*img;
+	char				*addr;
+	char				**map;
+	int					bits_per_px;
+	int					line_size;
+	int					endian;
+	t_pars				*pars;
+	t_texture_mapping	tex_map;
+	double				angle;
+	void				*sword_img;
+	void				*sword_addr;
+	int					sword_pixel;
+	int					sword_line_size;
+	int					sword_endian;
+	double				height_sword;
+	double				width_sword;
+	int					map_width;
+	int					map_height;
+	t_mini_map			*mini_map;
+	t_sword				*sword;
+}	t_graphics;
 
 typedef struct s_mini_map
 {
-	int	width_minimap; // equivalent de largeur minimap
-	int	size_square; // equivaelent de taille de chaque case
-	int	x_start; // x_depart
-	int	y_start; // y_depart
-	
+	int	width_minimap;
+	int	size_square;
+	int	x_start;
+	int	y_start;	
 	int	offset_x;
 	int	offset_y;
-
-	int	realmap_idx_x; // check_x
-	int	realmap_idx_y; // check_y
-	int grid_x;
+	int	realmap_idx_x;
+	int	realmap_idx_y;
+	int	grid_x;
 	int	grid_y;
+	int	x_minimap;
+	int	y_minimap;
+}	t_mini_map;
 
-	int	x_minimap; // x_de_chaque_carre
-	int	y_minimap; // y_chaque_carre
-} t_mini_map;
-
+typedef struct s_sword
+{
+	int			x;
+	int			y;
+	int			start_x;
+	int			start_y;
+	int			tex_x;
+	int			tex_y;
+	int 		relative_y;
+	int			relative_x;
+	char		*ptr;
+	unsigned int color;
+}	t_sword;
 
 void		algo(t_graphics **graph);
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x);

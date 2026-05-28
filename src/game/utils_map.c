@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 10:30:36 by adjelili          #+#    #+#             */
+/*   Updated: 2026/05/28 10:30:36 by adjelili         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/graphics.h"
 
 void	map_dimensions(t_graphics *graph)
@@ -109,7 +121,8 @@ void	left(t_graphics **graph)
 			* SPEED * (*graph)->delta_time);
 	new_x = (*graph)->pos_x - ((*graph)->plane_x
 			* SPEED * (*graph)->delta_time);
-	if (new_x < 0 || new_y < 0  || new_x > ft_strlen((*graph)->pars->map[(int)new_y])
+	if (new_x < 0 || new_y < 0 || new_x
+		> ft_strlen((*graph)->pars->map[(int)new_y])
 		|| new_y > (*graph)->map_height)
 		return ;
 	if ((*graph)->pars->map[(int)new_y][(int)new_x]
