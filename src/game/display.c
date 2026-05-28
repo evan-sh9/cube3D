@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 13:59:55 by eprieur           #+#    #+#             */
-/*   Updated: 2026/05/28 13:59:56 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/05/28 14:21:50 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ void	display(t_graphics *graph, int x, int side)
 
 	y = display_sky(graph, x);
 	if (side == 1)
-		graph->tex_map.wall_x = graph->pos_x + graph->perpWallDist
+		graph->tex_map.wall_x = graph->pos_x + graph->perpwalldist
 			* graph->ray_x;
 	else
-		graph->tex_map.wall_x = graph->pos_y + graph->perpWallDist
+		graph->tex_map.wall_x = graph->pos_y + graph->perpwalldist
 			* graph->ray_y;
 	graph->tex_map.wall_x = claim_decimal(graph->tex_map.wall_x);
 	graph->tex_map.texx = (int)(graph->tex_map.wall_x * (double)TEX_WIDTH);

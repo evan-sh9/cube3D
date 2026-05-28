@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 10:50:43 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/28 11:28:34 by adjelili         ###   ########.fr       */
+/*   Updated: 2026/05/28 14:21:25 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct s_graphics
 	int					step_y;
 	double				side_x;
 	double				side_y;
-	double				perpWallDist;
+	double				perpwalldist;
 	double				wall_height;
 	double				higher_px;
 	double				lower_px;

@@ -31,12 +31,12 @@ t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
 	set_side_step(graph, ray_x, ray_y);
 	side = hit_wall(graph);
 	if (side == 0)
-		graph->perpWallDist = (graph->side_x - graph->delta_x);
+		graph->perpwalldist = (graph->side_x - graph->delta_x);
 	else
-		graph->perpWallDist = (graph->side_y - graph->delta_y);
-	if (graph->perpWallDist <= 1e-6)
-		graph->perpWallDist = 1e-6;
-	graph->wall_height = (int)(HEIGHT / graph->perpWallDist);
+		graph->perpwalldist = (graph->side_y - graph->delta_y);
+	if (graph->perpwalldist <= 1e-6)
+		graph->perpwalldist = 1e-6;
+	graph->wall_height = (int)(HEIGHT / graph->perpwalldist);
 	graph->higher_px = -graph->wall_height / 2 + HEIGHT / 2;
 	if (graph->higher_px < 0)
 		graph->higher_px = 0;
