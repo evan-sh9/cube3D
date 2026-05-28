@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/28 14:46:34 by eprieur           #+#    #+#             */
+/*   Updated: 2026/05/28 14:46:35 by eprieur          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub3D.h"
 
 void	algo(t_graphics **graph)
@@ -17,8 +29,8 @@ void	algo(t_graphics **graph)
 	}
 	put_sword(graph);
 	minimap(*graph);
-	mlx_put_image_to_window((*graph)->mlx,
-		(*graph)->window, (*graph)->img, 0, 0);
+	mlx_put_image_to_window((*graph)->mlx, (*graph)->window, (*graph)->img, 0,
+		0);
 }
 
 t_graphics	*dda(double ray_x, double ray_y, t_graphics *graph, int x)
@@ -69,13 +81,7 @@ int	hit_wall(t_graphics *graph)
 			graph->map_y += graph->step_y;
 			side = 1;
 		}
-		map_x = (int)graph->map_x;
-		map_y = (int)graph->map_y;
-		if (map_y < 0 || map_y >= graph->pars->map_height
-			|| map_x < 0 || map_x >= ft_strlen(graph->pars->map[map_y])
-			|| graph->pars->map[map_y][map_x] == ' '
-			|| graph->pars->map[map_y][map_x] == '1')
-			hit = 1;
+		hit = hit_wall_next(graph, (int)graph->map_x, (int)graph->map_y);
 	}
 	return (side);
 }

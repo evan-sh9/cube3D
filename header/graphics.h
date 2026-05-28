@@ -6,7 +6,7 @@
 /*   By: eprieur <eprieur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 10:50:43 by adjelili          #+#    #+#             */
-/*   Updated: 2026/05/28 14:36:15 by eprieur          ###   ########.fr       */
+/*   Updated: 2026/05/28 14:44:15 by eprieur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_texture_mapping
 	int						texx;
 	int						texy;
 }							t_texture_mapping;
-
 
 typedef struct s_graphics
 {
@@ -122,17 +121,17 @@ typedef struct s_mini_map
 
 typedef struct s_sword
 {
-	int				x;
-	int				y;
-	int				start_x;
-	int				start_y;
-	int				tex_x;
-	int				tex_y;
-	int				relative_y;
-	int				relative_x;
-	char			*ptr;
-	unsigned int	color;
-}	t_sword;
+	int						x;
+	int						y;
+	int						start_x;
+	int						start_y;
+	int						tex_x;
+	int						tex_y;
+	int						relative_y;
+	int						relative_x;
+	char					*ptr;
+	unsigned int			color;
+}							t_sword;
 
 void						algo(t_graphics **graph);
 t_graphics					*dda(double ray_x, double ray_y, t_graphics *graph,
@@ -176,5 +175,7 @@ void						draw_walls_minimap(t_graphics *graph, int x, int y,
 void						draw_minimap(t_graphics *graph);
 void						minimap_two(t_graphics *graph);
 void						dir_spawn(t_graphics *graph);
+int							hit_wall_next(t_graphics *graph, int map_x,
+								int map_y);
 
 #endif
